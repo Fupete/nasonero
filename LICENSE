@@ -1,6 +1,8 @@
-MIT License
+The following license covers only the code portion need to build and serve this website, from this repository. Contents, texts, images, are all rights reserved by Daniele Tabellini and Erika Gabbani, unless otherwise stated on the page.
 
-Copyright (c) 2022 Matthias Ott
+------
+
+The code for this site is based on an original starter-theme by Matthias Ott, released under license from MIT, https://github.com/matthiasott/eleventy-plus-vite, Copyright (c) 2022 Matthias Ott
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
