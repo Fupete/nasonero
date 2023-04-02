@@ -46,3 +46,10 @@ jobs:
         with:
           publish_dir: ./_site
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v1.0.8
+        with:
+          name: github-pages
+          path: ./_site
+          # retention-days: # optional, default is 1
