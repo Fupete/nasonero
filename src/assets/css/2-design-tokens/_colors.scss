@@ -1,6 +1,6 @@
 :root {
-    --textColor: #1A1A1A;
-    --primaryColor: #0066cc;
+    --textColor: #212121;
+    --primaryColor: #ff0000;
     --focusColor: #ff7700;
     --backgroundColor: #ffffff;
 }
@@ -12,8 +12,8 @@
     }
 
     :root:not([data-user-color-scheme]) {
-        --backgroundColor: #1A1A1A;
-        --textColor: #eeeeee;
-        --primaryColor: #0066cc;
+        --backgroundColor: #212121;
+        --textColor: #fafafa;
+        --primaryColor: #ff0000;
     }
 }
