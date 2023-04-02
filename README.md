@@ -1,8 +1,10 @@
-# Ciao
+# nasonero playground
 
 This could be the repository for my/our new upcoming portfolio and digital playground. Let's see. 
 
-The code is originally based on this 11ty + Vite starter project: https://github.com/matthiasott/eleventy-plus-vite
+The code foundation is based on [11ty + Vite starter project](https://github.com/matthiasott/eleventy-plus-vite)
+
+----
 
 ## Getting started
 
