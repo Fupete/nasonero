@@ -1,0 +1,19 @@
+---
+layout: base
+permalink: /tags/
+title: Tags
+---
+
+<h1>Tags</h1> 
+
+<section>
+    <article>
+      <ul>
+      {% set orderedCollection = collections | sortObjectByKey  %}
+      {%- for tag, posts in orderedCollection %}
+        <li><a href="/tags/{{tag | slugify}}/"><strong>{{ tag }}</strong></a> - {{ posts | length }} posts</li>
+      {%- endfor -%}
+      </ul>
+    </article>
+
+</section>
