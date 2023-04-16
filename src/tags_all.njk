@@ -11,7 +11,8 @@ title: Tags
       <ul>
       {% set orderedCollection = collections | sortObjectByKey  %}
       {%- for tag, posts in orderedCollection %}
-        <li><a href="/tags/{{tag | slugify}}/"><strong>{{ tag }}</strong></a> - {{ posts | length }} posts</li>
+			{% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+        <li><a href="{{tagUrl|url}}"><strong>{{ tag }}</strong></a> - {{ posts | length }} posts</li>
       {%- endfor -%}
       </ul>
     </article>
