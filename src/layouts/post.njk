@@ -5,7 +5,7 @@ layout: base
     <h1>{{ title }}</h1>
 
 <ul class="post-metadata">
-  <time class="postlist-date" datetime="{{ date | dateToFormat('yyyy-MM-dd') }}">{{ date | dateToFormat('dd LLL yyyy') }}</time>
+  <time class="postlist-date" datetime="{{ page.date | dateToFormat('yyyy-MM-dd') }}">{{ page.date | dateToFormat('dd LLL yyyy') }}</time>
     {% for tag in tags | filterTagList %}
       {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
       <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
