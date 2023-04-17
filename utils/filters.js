@@ -22,11 +22,11 @@ module.exports = {
         return chars.join('')
     },
 
-    filterTagList (tags) {
+    filterTagList: function (tags) {
         return (tags || []).filter(tag => ["all", "nav", "note", "notes"].indexOf(tag) === -1);
     },
 
-    sortObjectByKey (collection) {
+    sortObjectByKey: function (collection) {
         const entries = Object.entries(collection);
         const toReturn = entries.sort((entry1, entry2) => {
             if (entry1[0] <= entry2[0]) return -1;
