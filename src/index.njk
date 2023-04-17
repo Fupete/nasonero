@@ -9,10 +9,10 @@ eleventyNavigation:
     <h1>We love Pizza&nbsp;🍕, pirates&nbsp;🏴‍☠️ and&nbsp;rainbows&nbsp;🌈</h1>
     <p>This website will be our new playground and portfolio.</p>
 
-    <h2 style="margin-top:12rem; padding-top:6rem; border-top:1px dotted #666">Latest posts</h2>
+    <h2 style="margin-top:12rem; padding-top:6rem; border-top:1px dotted #666">Latest notes</h2>
     {% set tagUrl %}/tags/{% endset %}
     <p><a href="{{tagUrl | url}}">Browse all tags</a></p>
 
-    {% set postslist = collections.posts %}
-    {% include "home-postslist.njk" %}
+    {% set noteslist = collections.notes %}
+    {% include "home-noteslist.njk" %}
   </div>

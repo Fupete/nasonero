@@ -52,7 +52,7 @@ module.exports = function (eleventyConfig) {
 							criticalBase: './_site/',
 							criticalPages: [
 								{ uri: 'index.html', template: 'index' },
-								{ uri: 'posts/index.html', template: 'posts/index' },
+								{ uri: 'notes/index.html', template: 'notes/index' },
 								{ uri: '404.html', template: '404' },
 							],
 							criticalConfig: {
@@ -117,7 +117,7 @@ module.exports = function (eleventyConfig) {
 
 	// Layouts
 	eleventyConfig.addLayoutAlias('base', 'base.njk')
-	eleventyConfig.addLayoutAlias('post', 'post.njk')
+	eleventyConfig.addLayoutAlias('note', 'note.njk')
 
 	// Copy/pass-through files
 	eleventyConfig.addPassthroughCopy('src/assets/css')

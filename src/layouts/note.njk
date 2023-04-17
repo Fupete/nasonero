@@ -1,0 +1,33 @@
+---
+layout: base
+---
+<article class="container">
+  <h1>{{ title }}</h1>
+
+<ul class="note-metadata">
+  <time class="notelist-date" datetime="{{ page.date | dateToFormat('yyyy-MM-dd') }}">{{ page.date | dateToFormat('dd LLL yyyy') }}</time>
+    {% for tag in tags | filterTagList %}
+      {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+      <a href="{{ tagUrl | url }}" class="note-tag">{{ tag }}</a>
+    {% endfor %}
+  </ul>
+
+  {{ content | safe }}
+
+  {%- if collections.notes %}
+    {%- set previousnote = collections.notes | getPreviousCollectionItem %}
+    {%- set nextnote = collections.notes | getNextCollectionItem %}
+    {%- if nextnote or previousnote %}
+      <ul class="links-nextprev">
+        {%- if previousnote %}
+          <li>Previous: <a href="{{ previousnote.url | url }}">{{ previousnote.data.title }}</a>
+          </li>
+        {% endif %}
+        {%- if nextnote %}
+          <li>Next: <a href="{{ nextnote.url | url }}">{{ nextnote.data.title }}</a>
+          </li>
+        {% endif %}
+      </ul>
+    {%- endif %}
+  {%- endif %}
+</article>

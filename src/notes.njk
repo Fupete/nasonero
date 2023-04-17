@@ -1,0 +1,13 @@
+---
+layout: base
+permalink: /notes/
+eleventyNavigation:
+  key: Notes
+  order: 2
+---
+
+<div class="container">
+    <h1>Notes</h1>
+    {% set noteslist = collections.notes %}
+    {% include "noteslist.njk" %}
+</div>

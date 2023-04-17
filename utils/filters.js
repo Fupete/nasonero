@@ -23,7 +23,7 @@ module.exports = {
     },
 
     filterTagList (tags) {
-        return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
+        return (tags || []).filter(tag => ["all", "nav", "note", "notes"].indexOf(tag) === -1);
     },
 
     sortObjectByKey (collection) {
