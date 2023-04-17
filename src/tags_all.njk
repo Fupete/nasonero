@@ -4,17 +4,19 @@ permalink: /tags/
 title: Tags
 ---
 
-<h1>Tags</h1> 
-
-<section>
-    <article>
-      <ul>
-      {% set orderedCollection = collections | sortObjectByKey  %}
-      {%- for tag, posts in orderedCollection %}
-			{% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
-        <li><a href="{{tagUrl|url}}"><strong>{{ tag }}</strong></a> - {{ posts | length }} posts</li>
-      {%- endfor -%}
-      </ul>
-    </article>
-
-</section>
+<div class="container">
+  <h1>Tags</h1>
+  <ul class="taglist">
+    {% set orderedCollection = collections | sortObjectByKey %}
+    {%- for tag, posts in orderedCollection %}
+    {% if tag !== 'all' and tag !== 'posts' %}
+    {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+    <li class="taglist-item">
+      <a href="{{tagUrl|url}}" class="taglist-link">
+        {{ tag }}</a> 
+        <sup>{{ posts | length }} posts</sup>
+      </li>
+    {% endif %}
+    {%- endfor -%}
+  </ul>
+</div>

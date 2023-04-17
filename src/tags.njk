@@ -17,12 +17,10 @@ permalink: /tags/{{ tag | slugify }}/
 
 <div class="container">
   <h1>Posts tagged "{{ tag }}"</h1>
+  {% set tagUrl %}/tags/{% endset %}
+  <p><a href="{{tagUrl | url}}">Browse all tags</a></p>
   {% set postslist = collections[tag] %}
   {% include "postslist.njk" %}
-
-
- {% set tagUrl %}/tags/{% endset %}
- <p>See <a href="{{tagUrl | url}}">all tags</a>.</p>
 </div>
 
 
