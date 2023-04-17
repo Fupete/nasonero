@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>nasonero playground</title>
+    <title>nasonero.studio</title>
     <subtitle>This website is our playground and portfolio</subtitle>
     <link href="https://fupete.github.io/nasonero//feed.xml" rel="self" type="application/atom+xml" />
     <link href="https://fupete.github.io/nasonero/" rel="alternate" type="text/html"/>
     <author>
-        <name>nasonero playground</name>
+        <name>nasonero.studio</name>
     </author>
     
     <updated>2023-04-01T00:00:00Z</updated>
