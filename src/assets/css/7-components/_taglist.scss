@@ -1,0 +1,9 @@
+ul.taglist {
+    list-style-type:none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    li.taglist-item {
+     margin-left:24px
+    }
+}
