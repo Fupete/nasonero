@@ -124,6 +124,7 @@ module.exports = function (eleventyConfig) {
 	// Copy/pass-through files
 	eleventyConfig.addPassthroughCopy('src/assets/css')
 	eleventyConfig.addPassthroughCopy('src/assets/js')
+	eleventyConfig.addPassthroughCopy('src/img')
 
 	// Build PageFind index 
 	eleventyConfig.on('eleventy.after', async () => {
