@@ -17,7 +17,7 @@
   },
   "Sjb26eLV0E-320.jpeg": {
     "file": "assets/css/main.46c842ea.css",
-    "src": "Sjb26eLV0E-320.jpeg"
+    "src": "notes/2023-03-20-Begin/Sjb26eLV0E-320.jpeg"
   },
   "Sjb26eLV0E-320.webp": {
     "file": "assets/css/main.653fe630.css",
@@ -35,15 +35,19 @@
     "file": "assets/css/main.5ac65945.css",
     "src": "Sjb26eLV0E-640.webp"
   },
-  "_focus-visible.e75d1c48.js": {
+  "_focus-visible.e8ea6b5f.js": {
     "css": [
-      "assets/css/main.ccea4b06.css"
+      "assets/css/main.d84f43e6.css"
     ],
-    "file": "assets/js/focus-visible.e75d1c48.js"
+    "file": "assets/js/focus-visible.e8ea6b5f.js"
   },
   "focus-visible.css": {
-    "file": "assets/css/main.ccea4b06.css",
+    "file": "assets/css/main.d84f43e6.css",
     "src": "focus-visible.css"
+  },
+  "notes/2023-03-20-Begin/86oVvjh92r-320.jpeg": {
+    "file": "assets/css/main.08fd30f2.css",
+    "src": "notes/2023-03-20-Begin/86oVvjh92r-320.jpeg"
   },
   "notes/2023-03-20-Begin/RPijnX0kkx-1280.avif": {
     "file": "assets/css/main.80775b11.css",
@@ -80,5 +84,32 @@
   "notes/2023-03-20-Begin/RPijnX0kkx-640.webp": {
     "file": "assets/css/main.d5f970a7.css",
     "src": "notes/2023-03-20-Begin/RPijnX0kkx-640.webp"
+  },
+  "notes/2023-03-20-Begin/Sjb26eLV0E-320.jpeg": {
+    "file": "assets/css/main.46c842ea.css",
+    "src": "notes/2023-03-20-Begin/Sjb26eLV0E-320.jpeg"
+  },
+  "notes/2023-03-20-Begin/index.css": {
+    "file": "assets/css/main.c5ca908b.css",
+    "src": "notes/2023-03-20-Begin/index.css"
+  },
+  "notes/2023-03-20-Begin/index.html": {
+    "css": [
+      "assets/css/main.c5ca908b.css"
+    ],
+    "file": "assets/js/index.3121c7f9.js",
+    "imports": [
+      "_focus-visible.e8ea6b5f.js"
+    ],
+    "isEntry": true,
+    "src": "notes/2023-03-20-Begin/index.html"
+  },
+  "notes/2023-03-20-Begin/qF6FyXhff4-320.jpeg": {
+    "file": "assets/css/main.3eb04775.css",
+    "src": "notes/2023-03-20-Begin/qF6FyXhff4-320.jpeg"
+  },
+  "notes/2023-03-20-Begin/wrMHxJkl2p-320.jpeg": {
+    "file": "assets/css/main.e92ab46d.css",
+    "src": "notes/2023-03-20-Begin/wrMHxJkl2p-320.jpeg"
   }
 }
