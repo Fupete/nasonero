@@ -1,12 +1,12 @@
 {
-  "_pagefind-ui.d88849ef.js": {
+  "_focus-visible.f9dd560f.js": {
     "css": [
       "assets/css/main.21672d85.css"
     ],
-    "file": "assets/js/pagefind-ui.d88849ef.js"
+    "file": "assets/js/focus-visible.f9dd560f.js"
   },
-  "pagefind-ui.css": {
+  "focus-visible.css": {
     "file": "assets/css/main.21672d85.css",
-    "src": "pagefind-ui.css"
+    "src": "focus-visible.css"
   }
 }
