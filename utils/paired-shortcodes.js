@@ -3,7 +3,7 @@ module.exports = {
 	gallery: function (content, name) {
 		return `
 		<div>
-			<div class="gallery" id="gallery-${name}--responsive-images">
+			<div class="gallery" id="gallery-${name}">
 				<ul>
 					${content}
 				</ul>
@@ -13,8 +13,9 @@ module.exports = {
 				import PhotoSwipe from '/assets/js/modules/PhotoSwipe/dist/photoswipe.esm.min.js';
 				import '/assets/js/modules/PhotoSwipe/dist/photoswipe.css';
 				const lightbox = new PhotoSwipeLightbox({
-					gallery: '#gallery-${name}--responsive-images',
+					gallery: '#gallery-${name}',
 					children: 'a',
+					showHideAnimationType: 'zoom',
 					pswpModule: PhotoSwipe,
 					preload: [1, 1]
 				});
