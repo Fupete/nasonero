@@ -10,8 +10,9 @@ eleventyNavigation:
   <p>We do think, design, art, and teach. This website will be our new playground and portfolio, everything is ongoing,
     right now it is just a sandbox test website, stay tuned 📻🖖</p>
 
-  <h2 style="margin-top:4rem; padding-top:4rem;">Search</h2>
+  {# <h2 style="margin-top:4rem; padding-top:4rem;">Explore our world</h2> #}
 
+  <label for="site-search" class="input-search-label">Search the collections</label>
   <div id="search" class="search"></div>
 
   <h2 style="margin-top:4rem; padding-top:4rem;">Latest notes</h2>
@@ -27,4 +28,16 @@ eleventyNavigation:
 </div>
 
 {% set pagefindUrl %}/_pagefind/pagefind-ui.js{% endset %}
-<script src="{{pagefindUrl| url}}" onload="new PagefindUI({ element: '#search', showImages: false });"></script> 
+
+<script>
+  const initSearch = () => {
+    new PagefindUI({ element: '#search', showImages: false })
+    // setTimeout(function () {
+      const inputSearch = document.querySelector("input")
+      inputSearch.setAttribute("id","site-search")
+      console.log(inputSearch)
+    // }, 500)
+  }
+</script>
+
+<script src="{{pagefindUrl| url}}" onload="initSearch()"></script>

@@ -4,7 +4,7 @@ layout: base
 <article class="container" data-pagefind-body>
   <h1>{{ title }}</h1>
 
-<ul class="note-metadata">
+<ul class="note-metadata" data-pagefind-ignore>
   <time class="notelist-date" datetime="{{ page.date | dateToFormat('yyyy-MM-dd') }}">{{ page.date | dateToFormat('dd LLL yyyy') }}</time>
     {% for tag in tags | filterTagList %}
       {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
