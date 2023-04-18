@@ -26,8 +26,5 @@ eleventyNavigation:
 
 </div>
 
-<script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    new PagefindUI({ element: "#search", showImages: false });
-  });
-</script>
+{% set pagefindUrl %}/_pagefind/pagefind-ui.js{% endset %}
+<script src="{{pagefindUrl| url}}" onload="new PagefindUI({ element: '#search', showImages: false });"></script> 
