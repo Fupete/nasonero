@@ -1,28 +1,25 @@
-const Image = require("@11ty/eleventy-img");
+const Image = require("@11ty/eleventy-img")
+const path = require('path')
 
 module.exports = {
 
     image: async function(src, alt, sizes = '100vw') {
-        // let imageSrc = `${path.dirname(this.page.inputPath)}/${src}`
+        let imageSrc = `${path.dirname(this.page.inputPath)}/${src}`
 
-        let metadata = await Image(src, {
-			widths: [300, 600],
-			formats: ["avif", "jpeg"],
-            outputDir: "./_site/img/",
-            // outputDir: path.dirname(this.page.outputPath),
-            // urlPath: this.page.url,
+        let metadata = await Image(imageSrc, {
+			widths: [320, 640, 1280],
+			formats: ["avif", "webp", "jpeg"],
+            // outputDir: "./_site/img/",
+            outputDir: path.dirname(this.page.outputPath),
+            urlPath: this.page.url,
 		})
 
 		let imageAttributes = {
 			alt,
 			sizes,
 			loading: "lazy",
-			decoding: "async",
+			decoding: "auto",
 		}
-
-        // return `<picture>
-        // // picture markup goes here
-        // </picture>`
 
 		return Image.generateHTML(metadata, imageAttributes)
     },
