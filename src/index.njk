@@ -29,8 +29,6 @@ eleventyNavigation:
 
 </div>
 
-{% set pagefindUrl %}/_pagefind/pagefind-ui.js{% endset %}
-
 <script>
   const initSearch = () => {
     new PagefindUI({ element: '#search', showImages: false })
@@ -39,4 +37,5 @@ eleventyNavigation:
   }
 </script>
 
+{% set pagefindUrl %}/_pagefind/pagefind-ui.js{% endset %}
 <script src="{{ pagefindUrl | url}}" onload="initSearch()"></script>
