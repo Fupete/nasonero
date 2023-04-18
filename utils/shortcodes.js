@@ -52,7 +52,7 @@ module.exports = {
 
 		return `
 			<li>
-				<a href="${genMetadata.jpeg[1].url}" 
+				<a href="/nasonero${genMetadata.jpeg[1].url}" 
 				data-pswp-width="${genMetadata.jpeg[1].width}" 
 				data-pswp-height="${genMetadata.jpeg[1].height}" 
 				target="_blank">
