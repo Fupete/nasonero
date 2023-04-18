@@ -1,48 +1,12 @@
 {
-  "Sjb26eLV0E-1280.avif": {
-    "file": "assets/css/main.79b88c76.css",
-    "src": "Sjb26eLV0E-1280.avif"
-  },
-  "Sjb26eLV0E-1280.jpeg": {
-    "file": "assets/css/main.29faa46d.css",
-    "src": "Sjb26eLV0E-1280.jpeg"
-  },
-  "Sjb26eLV0E-1280.webp": {
-    "file": "assets/css/main.792711b9.css",
-    "src": "Sjb26eLV0E-1280.webp"
-  },
-  "Sjb26eLV0E-320.avif": {
-    "file": "assets/css/main.2c505d91.css",
-    "src": "Sjb26eLV0E-320.avif"
-  },
-  "Sjb26eLV0E-320.jpeg": {
-    "file": "assets/css/main.46c842ea.css",
-    "src": "notes/2023-03-20-Begin/Sjb26eLV0E-320.jpeg"
-  },
-  "Sjb26eLV0E-320.webp": {
-    "file": "assets/css/main.653fe630.css",
-    "src": "Sjb26eLV0E-320.webp"
-  },
-  "Sjb26eLV0E-640.avif": {
-    "file": "assets/css/main.6ab6878f.css",
-    "src": "Sjb26eLV0E-640.avif"
-  },
-  "Sjb26eLV0E-640.jpeg": {
-    "file": "assets/css/main.d7df4055.css",
-    "src": "Sjb26eLV0E-640.jpeg"
-  },
-  "Sjb26eLV0E-640.webp": {
-    "file": "assets/css/main.5ac65945.css",
-    "src": "Sjb26eLV0E-640.webp"
-  },
-  "_focus-visible.d937c8f2.js": {
+  "_focus-visible.47ee0b9a.js": {
     "css": [
-      "assets/css/main.c36dc7b8.css"
+      "assets/css/main.66d36375.css"
     ],
-    "file": "assets/js/focus-visible.d937c8f2.js"
+    "file": "assets/js/focus-visible.47ee0b9a.js"
   },
   "focus-visible.css": {
-    "file": "assets/css/main.c36dc7b8.css",
+    "file": "assets/css/main.66d36375.css",
     "src": "focus-visible.css"
   },
   "notes/2023-03-20-Begin/86oVvjh92r-320.jpeg": {
@@ -97,9 +61,9 @@
     "css": [
       "assets/css/main.c5ca908b.css"
     ],
-    "file": "assets/js/index.469e54c1.js",
+    "file": "assets/js/index.423e71f0.js",
     "imports": [
-      "_focus-visible.d937c8f2.js"
+      "_focus-visible.47ee0b9a.js"
     ],
     "isEntry": true,
     "src": "notes/2023-03-20-Begin/index.html"
