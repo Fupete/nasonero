@@ -1,7 +1,7 @@
 ---
 layout: base
 ---
-<article class="container">
+<article class="container" data-pagefind-body>
   <h1>{{ title }}</h1>
 
 <ul class="note-metadata">
@@ -18,7 +18,7 @@ layout: base
     {%- set previousnote = collections.notes | getPreviousCollectionItem %}
     {%- set nextnote = collections.notes | getNextCollectionItem %}
     {%- if nextnote or previousnote %}
-      <ul class="links-nextprev">
+      <ul class="links-nextprev" data-pagefind-ignore>
         {%- if previousnote %}
           <li>Previous: <a href="{{ previousnote.url | url }}">{{ previousnote.data.title }}</a>
           </li>

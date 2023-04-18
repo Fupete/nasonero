@@ -14,6 +14,8 @@ const shortcodes = require('./utils/shortcodes.js')
 
 const { resolve } = require('path')
 
+const { execSync } = require('child_process')
+
 module.exports = function (eleventyConfig) {
 	eleventyConfig.setServerPassthroughCopyBehavior('copy');
 	eleventyConfig.addPassthroughCopy("public");
@@ -122,6 +124,11 @@ module.exports = function (eleventyConfig) {
 	// Copy/pass-through files
 	eleventyConfig.addPassthroughCopy('src/assets/css')
 	eleventyConfig.addPassthroughCopy('src/assets/js')
+
+	// Build PageFind index 
+	eleventyConfig.on('eleventy.after', async () => {
+		execSync(`npx pagefind --source _site --glob \"**/*.html\"`, { encoding: 'utf-8' })
+	})
 
 	return {
 		templateFormats: ['md', 'njk', 'html', 'liquid'],

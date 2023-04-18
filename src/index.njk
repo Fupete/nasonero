@@ -6,16 +6,23 @@ eleventyNavigation:
 ---
 
 <div class="container home">
-    <h1>We love pizza&nbsp;🍕, pirates&nbsp;🏴‍☠️ and&nbsp;rainbows&nbsp;🌈</h1>
-    <p>We do think, design, art, and teach. This website will be our new playground and portfolio, everything is ongoing, right now it is just a sandbox test website, stay tuned 📻🖖</p>
+  <h1>We love pizza&nbsp;🍕, pirates&nbsp;🏴‍☠️ and&nbsp;rainbows&nbsp;🌈</h1>
+  <p>We do think, design, art, and teach. This website will be our new playground and portfolio, everything is ongoing,
+    right now it is just a sandbox test website, stay tuned 📻🖖</p>
 
-    <h2 style="margin-top:4rem; padding-top:4rem;">Latest notes</h2>
+    <h2 style="margin-top:4rem; padding-top:4rem;">Search</h2>
+  
+      <div id="search" class="search"></div>
+      <script src="/_pagefind/pagefind-ui.js" onload="new PagefindUI({ element: '#search', showImages: false });"></script>
 
-    {% set noteslist = collections.notes %}
-    {% include "home-noteslist.njk" %}
+  <h2 style="margin-top:4rem; padding-top:4rem;">Latest notes</h2>
 
-    {% set tagUrl %}/tags/{% endset %}
-    {% set noteUrl %}/notes/{% endset %}
-    <p style="margin-top:6rem"><a href="{{tagUrl | url}}">Browse all tags</a></p>
-    <p><a href="{{noteUrl| url}}">Browse all notes</a></p>
-  </div>
+  {% set noteslist = collections.notes %}
+  {% include "home-noteslist.njk" %}
+
+  {% set tagUrl %}/tags/{% endset %}
+  {% set noteUrl %}/notes/{% endset %}
+  <p style="margin-top:6rem"><a href="{{tagUrl | url}}">Browse all tags</a></p>
+  <p><a href="{{noteUrl| url}}">Browse all notes</a></p>
+
+</div>
