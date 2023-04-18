@@ -11,6 +11,7 @@ const rollupPluginCritical = require('rollup-plugin-critical').default
 const filters = require('./utils/filters.js')
 const transforms = require('./utils/transforms.js')
 const shortcodes = require('./utils/shortcodes.js')
+const pairedShortcodes = require('./utils/paired-shortcodes.js')
 
 const { resolve } = require('path')
 
@@ -97,6 +98,9 @@ module.exports = function (eleventyConfig) {
 	// Shortcodes
 	Object.keys(shortcodes).forEach((shortcodeName) => {
 		eleventyConfig.addShortcode(shortcodeName, shortcodes[shortcodeName])
+	})
+	Object.keys(pairedShortcodes).forEach((pairedShortcodeName) => {
+		eleventyConfig.addPairedLiquidShortcode(pairedShortcodeName, pairedShortcodes[pairedShortcodeName])
 	})
 
 	eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`)

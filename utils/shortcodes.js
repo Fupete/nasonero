@@ -1,5 +1,10 @@
 const Image = require("@11ty/eleventy-img")
 const path = require('path')
+const sharp = require('sharp')
+
+const GALLERY_IMAGE_WIDTH = 320;
+const LANDSCAPE_LIGHTBOX_IMAGE_WIDTH = 1440;
+const PORTRAIT_LIGHTBOX_IMAGE_WIDTH = 720;
 
 module.exports = {
 
@@ -22,6 +27,39 @@ module.exports = {
 		}
 
 		return Image.generateHTML(metadata, imageAttributes)
+	},
+
+	galleryImage: async function (src, alt) {
+		let imageSrc = `${path.dirname(this.page.inputPath)}/${src}`
+		let lightboxImageWidth = LANDSCAPE_LIGHTBOX_IMAGE_WIDTH
+
+		const metadata = await sharp(imageSrc).metadata()
+
+		if(metadata.height > metadata.width) {
+			lightboxImageWidth = PORTRAIT_LIGHTBOX_IMAGE_WIDTH
+		}
+
+		const options = {
+			formats: ['jpeg'],
+			widths: [GALLERY_IMAGE_WIDTH, lightboxImageWidth],
+			// urlPath: "/gen/",
+			// outputDir: './_site/gen/'
+			outputDir: path.dirname(this.page.outputPath),
+			urlPath: this.page.url,
+		}
+
+		const genMetadata = await Image(imageSrc, options)
+
+		return `
+			<li>
+				<a href="${genMetadata.jpeg[1].url}" 
+				data-pswp-width="${genMetadata.jpeg[1].width}" 
+				data-pswp-height="${genMetadata.jpeg[1].height}" 
+				target="_blank">
+					<img src="${genMetadata.jpeg[0].url}" alt="${alt}" />
+				</a>
+			</li>
+    	`.replace(/(\r\n|\n|\r)/gm, "")
 	},
 
 }
