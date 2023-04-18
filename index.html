@@ -60,7 +60,7 @@
 	</script>
     
 	
-  <script type="module" crossorigin src="/nasonero/assets/js/focus-visible.f9dd560f.js"></script>
+  <script type="module" crossorigin src="/nasonero/assets/js/pagefind-ui.d88849ef.js"></script>
   <link rel="stylesheet" href="/nasonero/assets/css/main.21672d85.css">
 </head>
 <body>
@@ -101,10 +101,9 @@
   <p>We do think, design, art, and teach. This website will be our new playground and portfolio, everything is ongoing,
     right now it is just a sandbox test website, stay tuned 📻🖖</p>
 
-    <h2 style="margin-top:4rem; padding-top:4rem;">Search</h2>
-  
-      <div id="search" class="search"></div>
-      <script src="/_pagefind/pagefind-ui.js" onload="new PagefindUI({ element: '#search', showImages: false });"></script>
+  <h2 style="margin-top:4rem; padding-top:4rem;">Search</h2>
+
+  <div id="search" class="search"></div>
 
   <h2 style="margin-top:4rem; padding-top:4rem;">Latest notes</h2>
 
@@ -150,6 +149,12 @@
   <p><a href="/nasonero/notes/">Browse all notes</a></p>
 
 </div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    new PagefindUI({ element: "#search", showImages: false });
+  });
+</script>
         </main>
         <footer class="site-footer" role="contentinfo">
     <div class="site-footer__inner container">
