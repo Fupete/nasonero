@@ -3,15 +3,15 @@ const path = require('path')
 
 module.exports = {
 
-    image: async function(src, alt, sizes = '100vw') {
-        let imageSrc = `${path.dirname(this.page.inputPath)}/${src}`
+	image: async function (src, alt, sizes = '100vw', widths = [320, 640, 1280]) {
+		let imageSrc = `${path.dirname(this.page.inputPath)}/${src}`
 
-        let metadata = await Image(imageSrc, {
-			widths: [320, 640, 1280],
+		let metadata = await Image(imageSrc, {
+			widths: widths,
 			formats: ["avif", "webp", "jpeg"],
-            // outputDir: "./_site/img/",
-            outputDir: path.dirname(this.page.outputPath),
-            urlPath: this.page.url,
+			// outputDir: "./_site/img/",
+			outputDir: path.dirname(this.page.outputPath),
+			urlPath: this.page.url,
 		})
 
 		let imageAttributes = {
@@ -22,6 +22,6 @@ module.exports = {
 		}
 
 		return Image.generateHTML(metadata, imageAttributes)
-    },
-       
+	},
+
 }
