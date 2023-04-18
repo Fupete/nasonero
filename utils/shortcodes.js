@@ -8,6 +8,16 @@ const PORTRAIT_LIGHTBOX_IMAGE_WIDTH = 720;
 
 module.exports = {
 
+	video: async function (id, mp4, webm) {
+        return `
+		<div>
+		<video id="${id}" class="video-js" data-setup='{}'>
+		  <source src="${mp4}" type="video/mp4">
+		  <source src="${webm}" type="video/webm">
+	    </video>
+		</div>`
+	},
+
 	image: async function (src, alt, sizes = '100vw', widths = [320, 640, 1280]) {
 		let imageSrc = `${path.dirname(this.page.inputPath)}/${src}`
 
@@ -49,10 +59,11 @@ module.exports = {
 		}
 
 		const genMetadata = await Image(imageSrc, options)
+		// console.log(genMetadata)
 
 		return `
 			<li>
-				<a href="/nasonero${genMetadata.jpeg[1].url}" 
+				<a href="${genMetadata.jpeg[1].url}" 
 				data-pswp-width="${genMetadata.jpeg[1].width}" 
 				data-pswp-height="${genMetadata.jpeg[1].height}" 
 				target="_blank">

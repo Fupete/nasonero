@@ -52,6 +52,7 @@
     "postcss-nesting": "^11.2.2",
     "rollup-plugin-critical": "^1.0.12",
     "sass": "^1.53.0",
+    "video.js": "^8.0.4",
     "vite": "^4.2.1"
   },
   "dependencies": {
