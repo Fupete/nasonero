@@ -11,11 +11,33 @@ module.exports = {
 	video: async function (id, mp4, webm) {
         return `
 		<div>
-		<video-js id="${id}" class="video-js" data-setup='{}'>
-		  <source src="${mp4}" type="video/mp4">
-		  <source src="${webm}" type="video/webm">
-	    </video-js>
-		</div>`
+			<video id="${id}" class="video-js" data-setup='{
+				"fluid": true, 
+				"responsive": true,
+				"controls": true,
+				"preload": "auto"
+			}'>
+			<source src="${mp4}" type="video/mp4">
+			<source src="${webm}" type="video/webm">
+			</video>
+		</div>
+		`
+	},
+
+	videoYoutube: async function (id, url) {
+        return `
+		<div>
+			<video id="${id}" class="video-js" data-setup='{
+				"fluid": true, 
+				"responsive": true,
+				"controls": true,
+				"preload": "none",
+				"techOrder": ["youtube"]
+			}'>
+			<source src="${url}" type="video/youtube">
+			</video>
+		</div>
+		`
 	},
 
 	image: async function (src, alt, sizes = '100vw', widths = [320, 640, 1280]) {
@@ -24,7 +46,7 @@ module.exports = {
 		let metadata = await Image(imageSrc, {
 			widths: widths,
 			formats: ["avif", "webp", "jpeg"],
-			// outputDir: "./_site/img/",
+			outputDir: "./_site/img/",
 			outputDir: path.dirname(this.page.outputPath),
 			urlPath: this.page.url,
 		})

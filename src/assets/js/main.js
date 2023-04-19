@@ -7,15 +7,31 @@ import 'focus-visible'
 import './modules/nav'
 
 // video.js
-import 'video.js'
-import 'video.js/dist/video-js.min.css'
+import videojs from 'video.js'
+import 'videojs-youtube'
 
-// // Pagefind-ui
-// import (/* @vite-ignore */ '/_pagefind/pagefind-ui.js')
+// pagefind-ui
+import '../../_pagefind/pagefind-ui.js'
+const initSearch = () => {
+    new PagefindUI({ element: '#search', showImages: false })
+      const inputSearch = document.querySelector("input")
+      inputSearch.setAttribute("id","site-search")
+  }
+const isHome = document.querySelector('.home')
+if (isHome) initSearch()
 
-// Photoswipe
-// // import PhotoSwipe from 'photoswipe'
-// // import PhotoSwipeLightbox from 'photoswipe'
-// // import PhotoSwipeLightbox from '/node_modules/photoswipe/dist/photoswipe-lightbox.esm.min.js';
-// // import PhotoSwipe from '/node_modules/photoswipe/dist/photoswipe.esm.min.js'
-// import 'photoswipe/dist/photoswipe.css'
+// photoswipe
+import PhotoSwipe from 'photoswipe'
+import PhotoSwipeLightbox from 'photoswipe/lightbox'
+import '/assets/js/modules/PhotoSwipe/dist/photoswipe.css';
+const galleries = document.querySelectorAll('.gallery')
+galleries.forEach(galleryX => {
+    const lightbox = new PhotoSwipeLightbox({
+        gallery: galleryX,
+        children: 'a',
+        showHideAnimationType: 'zoom',
+        pswpModule: PhotoSwipe,
+        preload: [1, 1]
+    });
+    lightbox.init();
+})
