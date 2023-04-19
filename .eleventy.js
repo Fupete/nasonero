@@ -1,6 +1,7 @@
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
 
+const { EleventyHtmlBasePlugin } = require("@11ty/eleventy")
 const EleventyPluginNavigation = require('@11ty/eleventy-navigation')
 const EleventyPluginRss = require('@11ty/eleventy-plugin-rss')
 const EleventyPluginSyntaxhighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
@@ -19,10 +20,11 @@ const { execSync } = require('child_process')
 
 
 module.exports = function (eleventyConfig) {
-	eleventyConfig.setServerPassthroughCopyBehavior('copy');
-	eleventyConfig.addPassthroughCopy("public");
+	eleventyConfig.setServerPassthroughCopyBehavior('copy')
+	eleventyConfig.addPassthroughCopy("public")
 
-	// Plugins
+    // plugins
+	eleventyConfig.addPlugin(EleventyHtmlBasePlugin)
 	eleventyConfig.addPlugin(EleventyPluginNavigation)
 	eleventyConfig.addPlugin(EleventyPluginRss)
 	eleventyConfig.addPlugin(EleventyPluginSyntaxhighlight)
