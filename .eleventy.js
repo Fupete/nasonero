@@ -33,7 +33,7 @@ module.exports = function (eleventyConfig) {
 
 		// Vite options (equal to vite.config.js inside project root)
 		viteOptions: {
-			//base: '',
+			base: '/',
 			publicDir: 'public',
 			clearScreen: false,
 			server: {
