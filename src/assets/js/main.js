@@ -23,7 +23,6 @@ if (isHome) initSearch()
 // photoswipe
 import PhotoSwipe from 'photoswipe'
 import PhotoSwipeLightbox from 'photoswipe/lightbox'
-import '/assets/js/modules/PhotoSwipe/dist/photoswipe.css';
 const galleries = document.querySelectorAll('.gallery')
 galleries.forEach(galleryX => {
     const lightbox = new PhotoSwipeLightbox({
