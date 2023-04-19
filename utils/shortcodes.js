@@ -45,7 +45,7 @@ module.exports = {
 
 		if (alt === undefined) {
 			// You bet we throw an error on missing alt (alt="" works okay)
-			throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
+			throw new Error(`Missing \`alt\` on image from: ${src}`);
 		}
 
 		let metadata = await Image(imageSrc, {
@@ -73,7 +73,7 @@ module.exports = {
 
 		if (alt === undefined) {
 			// You bet we throw an error on missing alt (alt="" works okay)
-			throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
+			throw new Error(`Missing \`alt\` on image from: ${src}`);
 		}
 
 		const metadata = await sharp(imageSrc).metadata()
@@ -93,11 +93,11 @@ module.exports = {
 
 		return `
 			<li>
-				<a href="${genMetadata.jpeg[1].url | url }" 
+				<a href="${eleventyConfig.getFilter("url")(genMetadata.jpeg[1].url)}" 
 				data-pswp-width="${genMetadata.jpeg[1].width}" 
 				data-pswp-height="${genMetadata.jpeg[1].height}" 
 				target="_blank">
-					<img src="${genMetadata.jpeg[0].url | url }" alt="${alt}" />
+					<img src="${eleventyConfig.getFilter("url")(genMetadata.jpeg[0].url)}" alt="${alt}" />
 				</a>
 			</li>
     	`.replace(/(\r\n|\n|\r)/gm, "")
