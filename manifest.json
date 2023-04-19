@@ -1,9 +1,13 @@
 {
-  "_video-js.min.5f68bd15.js": {
+  "_main.4acb92e8.js": {
     "css": [
-      "assets/css/main.52e303f1.css"
+      "assets/css/main.9cb18d38.css"
     ],
-    "file": "assets/js/video-js.min.5f68bd15.js"
+    "file": "assets/js/main.4acb92e8.js"
+  },
+  "main.css": {
+    "file": "assets/css/main.9cb18d38.css",
+    "src": "main.css"
   },
   "notes/2023-03-20-Begin/86oVvjh92r-320.jpeg": {
     "file": "assets/css/main.08fd30f2.css",
@@ -49,21 +53,6 @@
     "file": "assets/css/main.46c842ea.css",
     "src": "notes/2023-03-20-Begin/Sjb26eLV0E-320.jpeg"
   },
-  "notes/2023-03-20-Begin/index.css": {
-    "file": "assets/css/main.c5ca908b.css",
-    "src": "notes/2023-03-20-Begin/index.css"
-  },
-  "notes/2023-03-20-Begin/index.html": {
-    "css": [
-      "assets/css/main.c5ca908b.css"
-    ],
-    "file": "assets/js/index.d4137ff9.js",
-    "imports": [
-      "_video-js.min.5f68bd15.js"
-    ],
-    "isEntry": true,
-    "src": "notes/2023-03-20-Begin/index.html"
-  },
   "notes/2023-03-20-Begin/qF6FyXhff4-320.jpeg": {
     "file": "assets/css/main.3eb04775.css",
     "src": "notes/2023-03-20-Begin/qF6FyXhff4-320.jpeg"
@@ -71,9 +60,5 @@
   "notes/2023-03-20-Begin/wrMHxJkl2p-320.jpeg": {
     "file": "assets/css/main.e92ab46d.css",
     "src": "notes/2023-03-20-Begin/wrMHxJkl2p-320.jpeg"
-  },
-  "video-js.css": {
-    "file": "assets/css/main.52e303f1.css",
-    "src": "video-js.css"
   }
 }
