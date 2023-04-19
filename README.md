@@ -1,6 +1,6 @@
 # nasonero playground
 
-This could be the repository for my/our new upcoming portfolio and digital playground. Let's see. 
+This could be the repository for my/our new upcoming portfolio and digital playground. Let's see. Gently.
 
 The `code foundation` is based on the repo [11ty + Vite starter project](https://github.com/matthiasott/eleventy-plus-vite)
 
