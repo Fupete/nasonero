@@ -16,7 +16,7 @@ const pairedShortcodes = require('./utils/paired-shortcodes.js')
 const { resolve } = require('path')
 
 const { execSync } = require('child_process')
-const pageAssetsPlugin = require('eleventy-plugin-page-assets');
+// const pageAssetsPlugin = require('eleventy-plugin-page-assets');
 
 
 module.exports = function (eleventyConfig) {
@@ -48,9 +48,10 @@ module.exports = function (eleventyConfig) {
 				// This puts CSS and JS in subfolders – remove if you want all of it to be in /assets instead
 				rollupOptions: {
 					output: {
-						assetFileNames: 'assets/css/main.[hash].css',
-						chunkFileNames: 'assets/js/[name].[hash].js',
-						entryFileNames: 'assets/js/[name].[hash].js'
+						// assetFileNames: 'assets/css/main.[hash].css',
+						assetFileNames: 'assets/[name]-[hash][extname]',
+						chunkFileNames: 'assets/js/[name]-[hash].js',
+						entryFileNames: 'assets/js/[name]-[hash].js'
 					},
 					plugins: [rollupPluginCritical({
 							criticalUrl: './_site/',
@@ -86,10 +87,10 @@ module.exports = function (eleventyConfig) {
 			}
 		}
 	})
-	eleventyConfig.addPlugin(pageAssetsPlugin, {
-        mode: "parse",
-        postsMatching: "src/notes/*/*",
-    })
+	// eleventyConfig.addPlugin(pageAssetsPlugin, {
+    //     mode: "parse",
+    //     postsMatching: "src/notes/*/*",
+    // })
 
 	// Filters
 	Object.keys(filters).forEach((filterName) => {

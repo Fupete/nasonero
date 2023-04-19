@@ -46,9 +46,10 @@ module.exports = {
 		let metadata = await Image(imageSrc, {
 			widths: widths,
 			formats: ["avif", "webp", "jpeg"],
-			outputDir: "./_site/img/",
-			outputDir: path.dirname(this.page.outputPath),
-			urlPath: this.page.url,
+			urlPath: "/assets/",
+			outputDir: "./_site/assets/",
+			// outputDir: path.dirname(this.page.outputPath),
+			// urlPath: this.page.url,
 		})
 
 		let imageAttributes = {
@@ -74,10 +75,10 @@ module.exports = {
 		const options = {
 			formats: ['jpeg'],
 			widths: [GALLERY_IMAGE_WIDTH, lightboxImageWidth],
-			// urlPath: "/gen/",
-			// outputDir: './_site/gen/'
-			outputDir: path.dirname(this.page.outputPath),
-			urlPath: this.page.url,
+			urlPath: "/assets/",
+			outputDir: "./_site/assets/",
+			// outputDir: path.dirname(this.page.outputPath),
+			// urlPath: this.page.url,
 		}
 
 		const genMetadata = await Image(imageSrc, options)
