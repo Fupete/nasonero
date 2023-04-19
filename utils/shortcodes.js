@@ -82,15 +82,6 @@ module.exports = {
 			lightboxImageWidth = PORTRAIT_LIGHTBOX_IMAGE_WIDTH
 		}
 
-		// const options = {
-		// 	formats: ['jpeg'],
-		// 	widths: [GALLERY_IMAGE_WIDTH, lightboxImageWidth],
-		// 	urlPath: "/media/",
-		// 	outputDir: "./_site/media/",
-		// 	// outputDir: path.dirname(this.page.outputPath),
-		// 	// urlPath: this.page.url,
-		// }
-
 		let genMetadata = await Image(imageSrc, {
 			widths: [GALLERY_IMAGE_WIDTH, lightboxImageWidth],
 			formats: ["avif", "webp", "jpeg"],
@@ -100,16 +91,13 @@ module.exports = {
 			// urlPath: this.page.url,
 		})
 
-		// const genMetadata = await Image(imageSrc, options)
-		// console.log(genMetadata)
-
 		return `
 			<li>
-				<a href="${genMetadata.jpeg[1].url}" 
+				<a href="${genMetadata.jpeg[1].url | url }" 
 				data-pswp-width="${genMetadata.jpeg[1].width}" 
 				data-pswp-height="${genMetadata.jpeg[1].height}" 
 				target="_blank">
-					<img src="${genMetadata.jpeg[0].url}" alt="${alt}" />
+					<img src="${genMetadata.jpeg[0].url | url }" alt="${alt}" />
 				</a>
 			</li>
     	`.replace(/(\r\n|\n|\r)/gm, "")
