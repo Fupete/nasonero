@@ -1,13 +1,9 @@
 {
-  "_focus-visible.47ee0b9a.js": {
+  "_video-js.min.5f68bd15.js": {
     "css": [
-      "assets/css/main.66d36375.css"
+      "assets/css/main.52e303f1.css"
     ],
-    "file": "assets/js/focus-visible.47ee0b9a.js"
-  },
-  "focus-visible.css": {
-    "file": "assets/css/main.66d36375.css",
-    "src": "focus-visible.css"
+    "file": "assets/js/video-js.min.5f68bd15.js"
   },
   "notes/2023-03-20-Begin/86oVvjh92r-320.jpeg": {
     "file": "assets/css/main.08fd30f2.css",
@@ -61,9 +57,9 @@
     "css": [
       "assets/css/main.c5ca908b.css"
     ],
-    "file": "assets/js/index.423e71f0.js",
+    "file": "assets/js/index.d4137ff9.js",
     "imports": [
-      "_focus-visible.47ee0b9a.js"
+      "_video-js.min.5f68bd15.js"
     ],
     "isEntry": true,
     "src": "notes/2023-03-20-Begin/index.html"
@@ -75,5 +71,9 @@
   "notes/2023-03-20-Begin/wrMHxJkl2p-320.jpeg": {
     "file": "assets/css/main.e92ab46d.css",
     "src": "notes/2023-03-20-Begin/wrMHxJkl2p-320.jpeg"
+  },
+  "video-js.css": {
+    "file": "assets/css/main.52e303f1.css",
+    "src": "video-js.css"
   }
 }
