@@ -101,7 +101,7 @@ module.exports = {
 		})
 
 		// const genMetadata = await Image(imageSrc, options)
-		console.log(genMetadata)
+		// console.log(genMetadata)
 
 		return `
 			<li>
