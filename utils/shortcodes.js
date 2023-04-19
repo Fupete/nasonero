@@ -1,10 +1,10 @@
 const Image = require("@11ty/eleventy-img")
 const path = require('path')
-const sharp = require('sharp')
+/*const sharp = require('sharp')
 
 const GALLERY_IMAGE_WIDTH = 320;
 const LANDSCAPE_LIGHTBOX_IMAGE_WIDTH = 1440;
-const PORTRAIT_LIGHTBOX_IMAGE_WIDTH = 720;
+const PORTRAIT_LIGHTBOX_IMAGE_WIDTH = 720;*/
 
 module.exports = {
 
@@ -67,7 +67,7 @@ module.exports = {
 		return Image.generateHTML(metadata, imageAttributes)
 	},
 
-	galleryImage: async function (src, alt) {
+	/*galleryImage: async function (src, alt) {
 		let imageSrc = `${path.dirname(this.page.inputPath)}/${src}`
 		let lightboxImageWidth = LANDSCAPE_LIGHTBOX_IMAGE_WIDTH
 
@@ -101,6 +101,6 @@ module.exports = {
 				</a>
 			</li>
     	`.replace(/(\r\n|\n|\r)/gm, "")
-	},
+	},*/
 
 }
