@@ -16,7 +16,6 @@ const pairedShortcodes = require('./utils/paired-shortcodes.js')
 const { resolve } = require('path')
 
 const { execSync } = require('child_process')
-// const pageAssetsPlugin = require('eleventy-plugin-page-assets');
 
 
 module.exports = function (eleventyConfig) {
@@ -87,10 +86,6 @@ module.exports = function (eleventyConfig) {
 			}
 		}
 	})
-	// eleventyConfig.addPlugin(pageAssetsPlugin, {
-    //     mode: "parse",
-    //     postsMatching: "src/notes/*/*",
-    // })
 
 	// Filters
 	Object.keys(filters).forEach((filterName) => {
