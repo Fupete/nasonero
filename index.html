@@ -148,11 +148,35 @@
   <p style="margin-top:6rem"><a href="/nasonero/tags/">Browse all tags</a></p>
   <p><a href="/nasonero/notes/">Browse all notes</a></p>
 
+  <h2 style="margin-top:4rem; padding-top:4rem;">Testing videos</h2> 
+  <h3>Local</h3>
   
+		<div>
+			<video id="videoHomeId" class="video-js" data-setup='{
+				"fluid": true, 
+				"responsive": true,
+				"controls": true,
+				"preload": "auto"
+			}'>
+			<source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+			<source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm">
+			</video>
+		</div>
+		
+  <h3>Youtube</h3>
   
-  
-  
-  
+		<div>
+			<video id="videoYTId" class="video-js" data-setup='{
+				"fluid": true, 
+				"responsive": true,
+				"controls": true,
+				"preload": "none",
+				"techOrder": ["youtube"]
+			}'>
+			<source src="https://www.youtube.com/watch?v=xjS6SftYQaQ" type="video/youtube">
+			</video>
+		</div>
+		
 
 </div>
         </main>
