@@ -11,10 +11,10 @@ module.exports = {
 	video: async function (id, mp4, webm) {
         return `
 		<div>
-		<video id="${id}" class="video-js" data-setup='{}'>
+		<video-js id="${id}" class="video-js" data-setup='{}'>
 		  <source src="${mp4}" type="video/mp4">
 		  <source src="${webm}" type="video/webm">
-	    </video>
+	    </video-js>
 		</div>`
 	},
 
