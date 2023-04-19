@@ -48,39 +48,52 @@ module.exports = function (eleventyConfig) {
 				rollupOptions: {
 					output: {
 						// assetFileNames: 'assets/css/main.[hash].css',
-						assetFileNames: 'assets/[name]-[hash][extname]',
+						// assetFileNames: 'assets/[name]-[hash][extname]',
+						assetFileNames: ( assetInfo ) => {
+							const info = assetInfo.name.split('.')
+							const extType = info[info.length - 1]
+							if (/png|webp|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+								return `media/[name][extname]`
+							} else if (/css/i.test(extType)) {
+								return `css/[name]-[hash][extname]`
+							} else {
+								// default value
+								// ref: https://rollupjs.org/guide/en/#outputassetfilenames
+								return 'assets/[name]-[hash][extname]'
+							}
+						},
 						chunkFileNames: 'assets/js/[name]-[hash].js',
 						entryFileNames: 'assets/js/[name]-[hash].js'
 					},
 					plugins: [rollupPluginCritical({
-							criticalUrl: './_site/',
-							criticalBase: './_site/',
-							criticalPages: [
-								{ uri: 'index.html', template: 'index' },
-								{ uri: 'notes/index.html', template: 'notes/index' },
-								{ uri: '404.html', template: '404' },
+						criticalUrl: './_site/',
+						criticalBase: './_site/',
+						criticalPages: [
+							{ uri: 'index.html', template: 'index' },
+							{ uri: 'notes/index.html', template: 'notes/index' },
+							{ uri: '404.html', template: '404' },
+						],
+						criticalConfig: {
+							inline: true,
+							dimensions: [
+								{
+									height: 900,
+									width: 375,
+								},
+								{
+									height: 720,
+									width: 1280,
+								},
+								{
+									height: 1080,
+									width: 1920,
+								}
 							],
-							criticalConfig: {
-								inline: true,
-								dimensions: [
-									{
-									  height: 900,
-									  width: 375,
-									},
-									{
-									  height: 720,
-									  width: 1280,
-									},
-									{
-										height: 1080,
-										width: 1920,
-									}
-								],
-								penthouse: {
-									forceInclude: ['.fonts-loaded-1 body', '.fonts-loaded-2 body'],
-								  }
+							penthouse: {
+								forceInclude: ['.fonts-loaded-1 body', '.fonts-loaded-2 body'],
 							}
-						})
+						}
+					})
 					]
 				}
 			}
@@ -130,12 +143,16 @@ module.exports = function (eleventyConfig) {
 	// Copy/pass-through files
 	eleventyConfig.addPassthroughCopy('src/assets/css')
 	eleventyConfig.addPassthroughCopy('src/assets/js')
-	eleventyConfig.addPassthroughCopy('src/img')
+	// eleventyConfig.addPassthroughCopy('src/assets/media')
 
 	// Build PageFind index 
 	eleventyConfig.on('eleventy.after', async () => {
 		execSync(`npx pagefind --source _site --glob \"**/*.html\"`, { encoding: 'utf-8' })
 	})
+
+	// Added due to issue https://github.com/matthiasott/eleventy-plus-vite/issues/2
+	// eleventyConfig.setServerPassthroughCopyBehavior("copy")
+	// eleventyConfig.addPassthroughCopy('public')
 
 	return {
 		templateFormats: ['md', 'njk', 'html', 'liquid'],

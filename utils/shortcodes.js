@@ -9,7 +9,7 @@ const PORTRAIT_LIGHTBOX_IMAGE_WIDTH = 720;
 module.exports = {
 
 	video: async function (id, mp4, webm) {
-        return `
+		return `
 		<div>
 			<video id="${id}" class="video-js" data-setup='{
 				"fluid": true, 
@@ -25,7 +25,7 @@ module.exports = {
 	},
 
 	videoYoutube: async function (id, url) {
-        return `
+		return `
 		<div>
 			<video id="${id}" class="video-js" data-setup='{
 				"fluid": true, 
@@ -43,11 +43,16 @@ module.exports = {
 	image: async function (src, alt, sizes = '100vw', widths = [320, 640, 1280]) {
 		let imageSrc = `${path.dirname(this.page.inputPath)}/${src}`
 
+		if (alt === undefined) {
+			// You bet we throw an error on missing alt (alt="" works okay)
+			throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
+		}
+
 		let metadata = await Image(imageSrc, {
 			widths: widths,
 			formats: ["avif", "webp", "jpeg"],
-			urlPath: "/assets/",
-			outputDir: "./_site/assets/",
+			urlPath: "/media/",
+			outputDir: "./_site/media/",
 			// outputDir: path.dirname(this.page.outputPath),
 			// urlPath: this.page.url,
 		})
@@ -66,23 +71,37 @@ module.exports = {
 		let imageSrc = `${path.dirname(this.page.inputPath)}/${src}`
 		let lightboxImageWidth = LANDSCAPE_LIGHTBOX_IMAGE_WIDTH
 
+		if (alt === undefined) {
+			// You bet we throw an error on missing alt (alt="" works okay)
+			throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
+		}
+
 		const metadata = await sharp(imageSrc).metadata()
 
-		if(metadata.height > metadata.width) {
+		if (metadata.height > metadata.width) {
 			lightboxImageWidth = PORTRAIT_LIGHTBOX_IMAGE_WIDTH
 		}
 
-		const options = {
-			formats: ['jpeg'],
+		// const options = {
+		// 	formats: ['jpeg'],
+		// 	widths: [GALLERY_IMAGE_WIDTH, lightboxImageWidth],
+		// 	urlPath: "/media/",
+		// 	outputDir: "./_site/media/",
+		// 	// outputDir: path.dirname(this.page.outputPath),
+		// 	// urlPath: this.page.url,
+		// }
+
+		let genMetadata = await Image(imageSrc, {
 			widths: [GALLERY_IMAGE_WIDTH, lightboxImageWidth],
-			urlPath: "/assets/",
-			outputDir: "./_site/assets/",
+			formats: ["avif", "webp", "jpeg"],
+			urlPath: "/media/",
+			outputDir: "./_site/media/",
 			// outputDir: path.dirname(this.page.outputPath),
 			// urlPath: this.page.url,
-		}
+		})
 
-		const genMetadata = await Image(imageSrc, options)
-		// console.log(genMetadata)
+		// const genMetadata = await Image(imageSrc, options)
+		console.log(genMetadata)
 
 		return `
 			<li>
