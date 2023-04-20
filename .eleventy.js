@@ -1,7 +1,7 @@
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
 
-const { EleventyHtmlBasePlugin } = require("@11ty/eleventy")
+// const { EleventyHtmlBasePlugin } = require("@11ty/eleventy")
 const EleventyPluginNavigation = require('@11ty/eleventy-navigation')
 const EleventyPluginRss = require('@11ty/eleventy-plugin-rss')
 const EleventyPluginSyntaxhighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
@@ -28,16 +28,16 @@ const PORTRAIT_LIGHTBOX_IMAGE_WIDTH = 720;
 
 
 module.exports = function (eleventyConfig) {
-	eleventyConfig.setServerPassthroughCopyBehavior('copy')
+	// eleventyConfig.setServerPassthroughCopyBehavior('copy')
 	eleventyConfig.addPassthroughCopy("public")
 
     // plugins
-	eleventyConfig.addPlugin(EleventyHtmlBasePlugin)
+	// eleventyConfig.addPlugin(EleventyHtmlBasePlugin)
 	eleventyConfig.addPlugin(EleventyPluginNavigation)
 	eleventyConfig.addPlugin(EleventyPluginRss)
 	eleventyConfig.addPlugin(EleventyPluginSyntaxhighlight)
 	eleventyConfig.addPlugin(EleventyVitePlugin, {
-		tempFolderName: '.11ty-vite', // Default name of the temp folder
+		tempFolderName: './.11ty-vite', // Default name of the temp folder
 
 		// Vite options (equal to vite.config.js inside project root)
 		viteOptions: {
@@ -57,54 +57,53 @@ module.exports = function (eleventyConfig) {
 				// This puts CSS and JS in subfolders – remove if you want all of it to be in /assets instead
 				rollupOptions: {
 					output: {
-						// assetFileNames: 'assets/css/main.[hash].css',
-						// assetFileNames: 'assets/[name]-[hash][extname]',
-						assetFileNames: ( assetInfo ) => {
-							const info = assetInfo.name.split('.')
-							const extType = info[info.length - 1]
-							if (/png|avif|webp|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
-								return `media/[name][extname]`
-							} else if (/css/i.test(extType)) {
-								return `css/[name]-[hash][extname]`
+						assetFileNames: (assetInfo) => {
+							var info = assetInfo.name.split('.')
+							var extType = info[info.length - 1]
+							if (
+								/png|avif|webp|jpe?g|svg|gif|tiff|bmp|ico/i.test(
+									extType
+								)
+							) {
+								return `imgs/[name][extname]`
 							} else {
-								// default value
-								// ref: https://rollupjs.org/guide/en/#outputassetfilenames
-								return 'assets/[name]-[hash][extname]'
+								return `css/[name]-[hash][extname]`
 							}
 						},
 						chunkFileNames: 'assets/js/[name]-[hash].js',
 						entryFileNames: 'assets/js/[name]-[hash].js'
 					},
-					plugins: [rollupPluginCritical({
-						criticalUrl: './_site/',
-						criticalBase: './_site/',
-						criticalPages: [
-							{ uri: 'index.html', template: 'index' },
-							{ uri: 'notes/index.html', template: 'notes/index' },
-							{ uri: '404.html', template: '404' },
-						],
-						criticalConfig: {
-							inline: true,
-							dimensions: [
-								{
-									height: 900,
-									width: 375,
-								},
-								{
-									height: 720,
-									width: 1280,
-								},
-								{
-									height: 1080,
-									width: 1920,
-								}
-							],
-							penthouse: {
-								forceInclude: ['.fonts-loaded-1 body', '.fonts-loaded-2 body'],
-							}
-						}
-					})
-					]
+					// plugins: [rollupPluginCritical({
+					// 	criticalUrl: './_site/',
+					// 	criticalBase: './_site/',
+					// 	criticalPages: [
+					// 		{ uri: 'index.html', template: 'index' },
+					// 		{ uri: 'notes/index.html', template: 'notes/index' },
+					// 		{ uri: '404.html', template: '404' },
+					// 		{ uri: 'about/index.html', template: 'index' },
+					// 	],
+					// 	criticalConfig: {
+					// 		inline: true,
+					// 		dimensions: [
+					// 			{
+					// 				height: 900,
+					// 				width: 375,
+					// 			},
+					// 			{
+					// 				height: 720,
+					// 				width: 1280,
+					// 			},
+					// 			{
+					// 				height: 1080,
+					// 				width: 1920,
+					// 			}
+					// 		],
+					// 		penthouse: {
+					// 			forceInclude: ['.fonts-loaded-1 body', '.fonts-loaded-2 body'],
+					// 		}
+					// 	}
+					// })
+					// ]
 				}
 			}
 		}
@@ -123,9 +122,6 @@ module.exports = function (eleventyConfig) {
 	// Shortcodes
 	Object.keys(shortcodes).forEach((shortcodeName) => {
 		eleventyConfig.addShortcode(shortcodeName, shortcodes[shortcodeName])
-	})
-	Object.keys(pairedShortcodes).forEach((pairedShortcodeName) => {
-		eleventyConfig.addPairedLiquidShortcode(pairedShortcodeName, pairedShortcodes[pairedShortcodeName])
 	})
 	// year
 	eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`)
@@ -148,22 +144,36 @@ module.exports = function (eleventyConfig) {
 		let genMetadata = await Image(imageSrc, {
 			widths: [GALLERY_IMAGE_WIDTH, lightboxImageWidth],
 			formats: ["avif", "webp", "jpeg"],
-			urlPath: "/media/",
-			outputDir: "./_site/media/",
+			urlPath: "/media/gallery/",
+			outputDir: "./public/media/gallery",
 			// outputDir: path.dirname(this.page.outputPath),
 			// urlPath: this.page.url,
 		})
 
+		const imageUrl = eleventyConfig.getFilter("url")(genMetadata.jpeg[1].url)
+		const imageWidth = genMetadata.jpeg[1].width
+		const imageHeight = genMetadata.jpeg[1].height
+		const thumbUrl = eleventyConfig.getFilter("url")(genMetadata.jpeg[0].url)
+
+		// let image = async () => {
+		// 	image.value = (await import(/* @vite-ignore */ imageUrl)).default
+		// 	thumb.value = (await import(/* @vite-ignore */ thumbUrl)).default
+		// }
+
 		return `
 			<li>
-				<a href="${eleventyConfig.getFilter("url")(genMetadata.jpeg[1].url)}" 
-				data-pswp-width="${genMetadata.jpeg[1].width}" 
-				data-pswp-height="${genMetadata.jpeg[1].height}" 
+				<a href="${imageUrl}" 
+				data-pswp-width="${imageWidth}" 
+				data-pswp-height="${imageHeight}" 
 				target="_blank">
-					<img src="${eleventyConfig.getFilter("url")(genMetadata.jpeg[0].url)}" alt="${alt}" />
+					<img src="${thumbUrl}" />
 				</a>
 			</li>
     	`.replace(/(\r\n|\n|\r)/gm, "")
+	})
+	// Paired shortcodes
+	Object.keys(pairedShortcodes).forEach((pairedShortcodeName) => {
+		eleventyConfig.addPairedLiquidShortcode(pairedShortcodeName, pairedShortcodes[pairedShortcodeName])
 	})
 
 	// Customize Markdown library and settings:
@@ -189,16 +199,11 @@ module.exports = function (eleventyConfig) {
 	// Copy/pass-through files
 	eleventyConfig.addPassthroughCopy('src/assets/css')
 	eleventyConfig.addPassthroughCopy('src/assets/js')
-	// eleventyConfig.addPassthroughCopy('src/assets/media')
 
 	// Build PageFind index 
 	eleventyConfig.on('eleventy.after', async () => {
 		execSync(`npx pagefind --source _site --glob \"**/*.html\"`, { encoding: 'utf-8' })
 	})
-
-	// Added due to issue https://github.com/matthiasott/eleventy-plus-vite/issues/2
-	// eleventyConfig.setServerPassthroughCopyBehavior("copy")
-	// eleventyConfig.addPassthroughCopy('public')
 
 	return {
 		templateFormats: ['md', 'njk', 'html', 'liquid'],

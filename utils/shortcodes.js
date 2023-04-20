@@ -51,8 +51,8 @@ module.exports = {
 		let metadata = await Image(imageSrc, {
 			widths: widths,
 			formats: ["avif", "webp", "jpeg"],
-			urlPath: "/media/",
-			outputDir: "./_site/media/",
+			urlPath: "/imgs/",
+			outputDir: "./_site/imgs/",
 			// outputDir: path.dirname(this.page.outputPath),
 			// urlPath: this.page.url,
 		})

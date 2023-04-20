@@ -58,7 +58,6 @@
   "dependencies": {
     "child_process": "^1.0.2",
     "photoswipe": "^5.3.7",
-    "puppeteer": "^19.9.1",
     "videojs-youtube": "^3.0.0"
   }
 }
