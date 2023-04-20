@@ -13,6 +13,7 @@ import 'videojs-youtube'
 // pagefind-ui
 // const pagefindUI = await import(/* @vite-ignore */ "../../_pagefind/pagefind-ui.js")
 import '../../_pagefind/pagefind-ui.js'
+import '/_pagefind/pagefind-ui.js'
 const initSearch = () => {
     new PagefindUI({ element: '#search', showImages: false })
       const inputSearch = document.querySelector("input")
