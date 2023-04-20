@@ -71,7 +71,12 @@ module.exports = function (eleventyConfig) {
 							}
 						},
 						chunkFileNames: 'assets/js/[name]-[hash].js',
-						entryFileNames: 'assets/js/[name]-[hash].js'
+						entryFileNames: 'assets/js/[name]-[hash].js',
+						manualChunks: {
+							// PhotoSwipe: ['photoswipe'],
+							// PhotoSwipeLightbox: ['photoswipe/lightbox'],
+							videojs: ['video.js'],
+						}
 					},
 					plugins: [rollupPluginCritical({
 						criticalUrl: './_site/',
