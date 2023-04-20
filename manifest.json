@@ -1,9 +1,9 @@
 {
-  "_main-4e6ecaec.js": {
+  "_main-1a37eecd.js": {
     "css": [
-      "css/main-f946fe60.css"
+      "css/main-b3ad938c.css"
     ],
-    "file": "assets/js/main-4e6ecaec.js"
+    "file": "assets/js/main-1a37eecd.js"
   },
   "imgs/RPijnX0kkx-1280.avif": {
     "file": "imgs/RPijnX0kkx-1280.avif",
@@ -42,7 +42,7 @@
     "src": "imgs/RPijnX0kkx-640.webp"
   },
   "main.css": {
-    "file": "css/main-f946fe60.css",
+    "file": "css/main-b3ad938c.css",
     "src": "main.css"
   }
 }
