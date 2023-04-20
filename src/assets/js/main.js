@@ -15,7 +15,7 @@ import '../../_pagefind/pagefind-ui.js'
 const initSearch = () => {
     new PagefindUI({
         element: '#search',
-        showImages: false,
+        showImages: true,
         //bundlePath: "/_pagefind/"
     })
     const inputSearch = document.querySelector("input")
