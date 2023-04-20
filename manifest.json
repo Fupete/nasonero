@@ -1,9 +1,15 @@
 {
-  "_main-1a37eecd.js": {
+  "_main-98a4b12d.js": {
     "css": [
       "css/main-b3ad938c.css"
     ],
-    "file": "assets/js/main-1a37eecd.js"
+    "file": "assets/js/main-98a4b12d.js",
+    "imports": [
+      "_videojs-c8c265c0.js"
+    ]
+  },
+  "_videojs-c8c265c0.js": {
+    "file": "assets/js/videojs-c8c265c0.js"
   },
   "imgs/RPijnX0kkx-1280.avif": {
     "file": "imgs/RPijnX0kkx-1280.avif",
