@@ -73,37 +73,37 @@ module.exports = function (eleventyConfig) {
 						chunkFileNames: 'assets/js/[name]-[hash].js',
 						entryFileNames: 'assets/js/[name]-[hash].js'
 					},
-					// plugins: [rollupPluginCritical({
-					// 	criticalUrl: './_site/',
-					// 	criticalBase: './_site/',
-					// 	criticalPages: [
-					// 		{ uri: 'index.html', template: 'index' },
-					// 		{ uri: 'notes/index.html', template: 'notes/index' },
-					// 		{ uri: '404.html', template: '404' },
-					// 		{ uri: 'about/index.html', template: 'index' },
-					// 	],
-					// 	criticalConfig: {
-					// 		inline: true,
-					// 		dimensions: [
-					// 			{
-					// 				height: 900,
-					// 				width: 375,
-					// 			},
-					// 			{
-					// 				height: 720,
-					// 				width: 1280,
-					// 			},
-					// 			{
-					// 				height: 1080,
-					// 				width: 1920,
-					// 			}
-					// 		],
-					// 		penthouse: {
-					// 			forceInclude: ['.fonts-loaded-1 body', '.fonts-loaded-2 body'],
-					// 		}
-					// 	}
-					// })
-					// ]
+					plugins: [rollupPluginCritical({
+						criticalUrl: './_site/',
+						criticalBase: './_site/',
+						criticalPages: [
+							{ uri: 'index.html', template: 'index' },
+							{ uri: 'notes/index.html', template: 'notes/index' },
+							{ uri: '404.html', template: '404' },
+							{ uri: 'about/index.html', template: 'index' },
+						],
+						criticalConfig: {
+							inline: true,
+							dimensions: [
+								{
+									height: 900,
+									width: 375,
+								},
+								{
+									height: 720,
+									width: 1280,
+								},
+								{
+									height: 1080,
+									width: 1920,
+								}
+							],
+							penthouse: {
+								forceInclude: ['.fonts-loaded-1 body', '.fonts-loaded-2 body'],
+							}
+						}
+					})
+					]
 				}
 			}
 		}
@@ -129,36 +129,21 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addShortcode("galleryImage", async function (src, alt) {
 		let imageSrc = `${path.dirname(this.page.inputPath)}/${src}`
 		let lightboxImageWidth = LANDSCAPE_LIGHTBOX_IMAGE_WIDTH
-
-		if (alt === undefined) {
-			// You bet we throw an error on missing alt (alt="" works okay)
-			throw new Error(`Missing \`alt\` on image from: ${src}`);
-		}
-
+		if (alt === undefined) throw new Error(`Missing \`alt\` on image from: ${src}`)
+		
 		const metadata = await sharp(imageSrc).metadata()
-
-		if (metadata.height > metadata.width) {
-			lightboxImageWidth = PORTRAIT_LIGHTBOX_IMAGE_WIDTH
-		}
-
+		if (metadata.height > metadata.width) lightboxImageWidth = PORTRAIT_LIGHTBOX_IMAGE_WIDTH
+		
 		let genMetadata = await Image(imageSrc, {
 			widths: [GALLERY_IMAGE_WIDTH, lightboxImageWidth],
 			formats: ["avif", "webp", "jpeg"],
 			urlPath: "/media/gallery/",
 			outputDir: "./public/media/gallery",
-			// outputDir: path.dirname(this.page.outputPath),
-			// urlPath: this.page.url,
 		})
-
 		const imageUrl = eleventyConfig.getFilter("url")(genMetadata.jpeg[1].url)
 		const imageWidth = genMetadata.jpeg[1].width
 		const imageHeight = genMetadata.jpeg[1].height
 		const thumbUrl = eleventyConfig.getFilter("url")(genMetadata.jpeg[0].url)
-
-		// let image = async () => {
-		// 	image.value = (await import(/* @vite-ignore */ imageUrl)).default
-		// 	thumb.value = (await import(/* @vite-ignore */ thumbUrl)).default
-		// }
 
 		return `
 			<li>
@@ -211,7 +196,6 @@ module.exports = function (eleventyConfig) {
 		passthroughFileCopy: true,
 		dir: {
 			input: 'src',
-			// better not use "public" as the name of the output folder (see above...)
 			output: '_site',
 			includes: '_includes',
 			layouts: 'layouts',
