@@ -11,9 +11,7 @@ import videojs from 'video.js'
 import 'videojs-youtube'
 
 // pagefind-ui
-// const pagefindUI = await import(/* @vite-ignore */ "../../_pagefind/pagefind-ui.js")
 import '../../_pagefind/pagefind-ui.js'
-import '/_pagefind/pagefind-ui.js'
 const initSearch = () => {
     new PagefindUI({
         element: '#search',
