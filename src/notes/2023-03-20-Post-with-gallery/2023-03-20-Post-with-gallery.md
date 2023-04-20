@@ -1,6 +1,6 @@
 ---
-title: Begin
-tags: [Data]
+title: Post with gallery
+tags: [Data,Gallery]
 ---
 
 {% gallery "uzupis" %}
