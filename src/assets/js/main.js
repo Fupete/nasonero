@@ -15,10 +15,14 @@ import 'videojs-youtube'
 import '../../_pagefind/pagefind-ui.js'
 import '/_pagefind/pagefind-ui.js'
 const initSearch = () => {
-    new PagefindUI({ element: '#search', showImages: false })
-      const inputSearch = document.querySelector("input")
-      inputSearch.setAttribute("id","site-search")
-  }
+    new PagefindUI({
+        element: '#search',
+        showImages: false,
+        bundlePath: "/_pagefind/"
+    })
+    const inputSearch = document.querySelector("input")
+    inputSearch.setAttribute("id", "site-search")
+}
 const isHome = document.querySelector('.home')
 if (isHome) initSearch()
 
