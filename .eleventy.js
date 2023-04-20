@@ -6,7 +6,6 @@ const EleventyPluginNavigation = require('@11ty/eleventy-navigation')
 const EleventyPluginRss = require('@11ty/eleventy-plugin-rss')
 const EleventyPluginSyntaxhighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite')
-
 const rollupPluginCritical = require('rollup-plugin-critical').default
 
 const filters = require('./utils/filters.js')
@@ -28,7 +27,7 @@ const PORTRAIT_LIGHTBOX_IMAGE_WIDTH = 720;
 
 
 module.exports = function (eleventyConfig) {
-	// eleventyConfig.setServerPassthroughCopyBehavior('copy')
+	eleventyConfig.setServerPassthroughCopyBehavior('copy')
 	eleventyConfig.addPassthroughCopy("public")
 
     // plugins
@@ -37,9 +36,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(EleventyPluginRss)
 	eleventyConfig.addPlugin(EleventyPluginSyntaxhighlight)
 	eleventyConfig.addPlugin(EleventyVitePlugin, {
-		tempFolderName: './.11ty-vite', // Default name of the temp folder
-
-		// Vite options (equal to vite.config.js inside project root)
+		tempFolderName: './.11ty-vite', 
 		viteOptions: {
 			base: '/nasonero/',
 			publicDir: 'public',
@@ -54,7 +51,6 @@ module.exports = function (eleventyConfig) {
 				mode: 'production',
 				sourcemap: 'true',
 				manifest: true,
-				// This puts CSS and JS in subfolders – remove if you want all of it to be in /assets instead
 				rollupOptions: {
 					output: {
 						assetFileNames: (assetInfo) => {
