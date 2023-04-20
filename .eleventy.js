@@ -151,7 +151,7 @@ module.exports = function (eleventyConfig) {
 				data-pswp-width="${imageWidth}" 
 				data-pswp-height="${imageHeight}" 
 				target="_blank">
-					<img src="${thumbUrl}" />
+					<img src="${thumbUrl}" alt="${alt}"/>
 				</a>
 			</li>
     	`.replace(/(\r\n|\n|\r)/gm, "")
