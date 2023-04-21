@@ -74,8 +74,8 @@
     margin-bottom: 0;
 }
 .pagefind-ui__result-title.svelte-j9e30 .pagefind-ui__result-link.svelte-j9e30 {
-    color: var(--pagefind-ui-text);
-    text-decoration: none;
+    color: var(--pagefind-ui-primary);
+    // text-decoration: none;
 }
 .pagefind-ui__result-title.svelte-j9e30 .pagefind-ui__result-link.svelte-j9e30:hover {
     text-decoration: underline;
@@ -257,6 +257,12 @@ legend.svelte-1v2r7ls.svelte-1v2r7ls {
 }
 .pagefind-ui--reset mark {
     all: revert;
+}
+.pagefind-ui__result-excerpt.svelte-j9e30.svelte-j9e30 mark {
+    border: 1px dotted var(--pagefind-ui-text);
+    padding: 2px 4px;
+    border-radius: 4px;
+    background: white;
 }
 .pagefind-ui.svelte-1bkqzc5 {
     width: 100%;
