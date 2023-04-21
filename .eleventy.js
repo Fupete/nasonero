@@ -1,7 +1,3 @@
-const markdownIt = require('markdown-it')
-const markdownItAnchor = require('markdown-it-anchor')
-
-// const { EleventyHtmlBasePlugin } = require("@11ty/eleventy")
 const EleventyPluginNavigation = require('@11ty/eleventy-navigation')
 const EleventyPluginRss = require('@11ty/eleventy-plugin-rss')
 const EleventyPluginSyntaxhighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
@@ -13,25 +9,26 @@ const transforms = require('./utils/transforms.js')
 const shortcodes = require('./utils/shortcodes.js')
 const pairedShortcodes = require('./utils/paired-shortcodes.js')
 
-const { resolve } = require('path')
-
+// const { resolve } = require('path')
 const { execSync } = require('child_process')
 
+// markdown
+const markdownIt = require('markdown-it')
+const markdownItAnchor = require('markdown-it-anchor')
+
+// image gallery
 const Image = require('@11ty/eleventy-img')
 const path = require('path')
 const sharp = require('sharp')
-
 const GALLERY_IMAGE_WIDTH = 320;
 const LANDSCAPE_LIGHTBOX_IMAGE_WIDTH = 1440;
 const PORTRAIT_LIGHTBOX_IMAGE_WIDTH = 720;
 
-
 module.exports = function (eleventyConfig) {
-	eleventyConfig.setServerPassthroughCopyBehavior('copy')
+	// eleventyConfig.setServerPassthroughCopyBehavior('copy')
 	eleventyConfig.addPassthroughCopy("public")
 
     // plugins
-	// eleventyConfig.addPlugin(EleventyHtmlBasePlugin)
 	eleventyConfig.addPlugin(EleventyPluginNavigation)
 	eleventyConfig.addPlugin(EleventyPluginRss)
 	eleventyConfig.addPlugin(EleventyPluginSyntaxhighlight)
@@ -124,15 +121,13 @@ module.exports = function (eleventyConfig) {
 	Object.keys(shortcodes).forEach((shortcodeName) => {
 		eleventyConfig.addShortcode(shortcodeName, shortcodes[shortcodeName])
 	})
-	// year
 	eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`)
-    // galleryImage
 	eleventyConfig.addShortcode("galleryImage", async function (src, alt) {
 		let imageSrc = `${path.dirname(this.page.inputPath)}/${src}`
 		let lightboxImageWidth = LANDSCAPE_LIGHTBOX_IMAGE_WIDTH
 		if (alt === undefined) throw new Error(`Missing \`alt\` on image from: ${src}`)
 		
-		const metadata = await sharp(imageSrc).metadata()
+		let metadata = await sharp(imageSrc).metadata()
 		if (metadata.height > metadata.width) lightboxImageWidth = PORTRAIT_LIGHTBOX_IMAGE_WIDTH
 		
 		let genMetadata = await Image(imageSrc, {
@@ -162,7 +157,7 @@ module.exports = function (eleventyConfig) {
 		eleventyConfig.addPairedLiquidShortcode(pairedShortcodeName, pairedShortcodes[pairedShortcodeName])
 	})
 
-	// Customize Markdown library and settings:
+	// Customize Markdown lib
 	let markdownLibrary = markdownIt({
 		html: true,
 		breaks: true,
@@ -186,7 +181,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy('src/assets/css')
 	eleventyConfig.addPassthroughCopy('src/assets/js')
 
-	// Build PageFind index 
+	// Build pagefind index 
 	eleventyConfig.on('eleventy.after', async () => {
 		execSync(`npx pagefind --source _site --glob \"**/*.html\"`, { encoding: 'utf-8' })
 	})
