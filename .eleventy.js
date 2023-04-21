@@ -1,6 +1,7 @@
 const EleventyPluginNavigation = require('@11ty/eleventy-navigation')
 const EleventyPluginRss = require('@11ty/eleventy-plugin-rss')
 const EleventyPluginSyntaxhighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
+const readingTime = require('eleventy-plugin-reading-time')
 const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite')
 const rollupPluginCritical = require('rollup-plugin-critical').default
 
@@ -20,6 +21,7 @@ const markdownItAnchor = require('markdown-it-anchor')
 const Image = require('@11ty/eleventy-img')
 const path = require('path')
 const sharp = require('sharp')
+const eleventyPluginReadingTime = require('eleventy-plugin-reading-time')
 const GALLERY_IMAGE_WIDTH = 320;
 const LANDSCAPE_LIGHTBOX_IMAGE_WIDTH = 1440;
 const PORTRAIT_LIGHTBOX_IMAGE_WIDTH = 720;
@@ -32,6 +34,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(EleventyPluginNavigation)
 	eleventyConfig.addPlugin(EleventyPluginRss)
 	eleventyConfig.addPlugin(EleventyPluginSyntaxhighlight)
+	eleventyConfig.addPlugin(readingTime)
 	eleventyConfig.addPlugin(EleventyVitePlugin, {
 		tempFolderName: './.11ty-vite', 
 		viteOptions: {
