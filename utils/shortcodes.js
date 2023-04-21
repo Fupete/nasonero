@@ -1,10 +1,5 @@
 const Image = require("@11ty/eleventy-img")
 const path = require('path')
-/*const sharp = require('sharp')
-
-const GALLERY_IMAGE_WIDTH = 320;
-const LANDSCAPE_LIGHTBOX_IMAGE_WIDTH = 1440;
-const PORTRAIT_LIGHTBOX_IMAGE_WIDTH = 720;*/
 
 module.exports = {
 
@@ -42,65 +37,21 @@ module.exports = {
 
 	image: async function (src, alt, sizes = '100vw', widths = [320, 640, 1280]) {
 		let imageSrc = `${path.dirname(this.page.inputPath)}/${src}`
-
-		if (alt === undefined) {
-			// You bet we throw an error on missing alt (alt="" works okay)
-			throw new Error(`Missing \`alt\` on image from: ${src}`);
-		}
+		if (alt === undefined) throw new Error(`Missing \`alt\` on image from: ${src}`)
 
 		let metadata = await Image(imageSrc, {
 			widths: widths,
 			formats: ["avif", "webp", "jpeg"],
 			urlPath: "/imgs/",
 			outputDir: "./_site/imgs/",
-			// outputDir: path.dirname(this.page.outputPath),
-			// urlPath: this.page.url,
 		})
 
-		let imageAttributes = {
+		return Image.generateHTML(metadata, attributes = {
 			alt,
 			sizes,
 			loading: "lazy",
 			decoding: "auto",
-		}
-
-		return Image.generateHTML(metadata, imageAttributes)
-	},
-
-	/*galleryImage: async function (src, alt) {
-		let imageSrc = `${path.dirname(this.page.inputPath)}/${src}`
-		let lightboxImageWidth = LANDSCAPE_LIGHTBOX_IMAGE_WIDTH
-
-		if (alt === undefined) {
-			// You bet we throw an error on missing alt (alt="" works okay)
-			throw new Error(`Missing \`alt\` on image from: ${src}`);
-		}
-
-		const metadata = await sharp(imageSrc).metadata()
-
-		if (metadata.height > metadata.width) {
-			lightboxImageWidth = PORTRAIT_LIGHTBOX_IMAGE_WIDTH
-		}
-
-		let genMetadata = await Image(imageSrc, {
-			widths: [GALLERY_IMAGE_WIDTH, lightboxImageWidth],
-			formats: ["avif", "webp", "jpeg"],
-			urlPath: "/media/",
-			outputDir: "./_site/media/",
-			// outputDir: path.dirname(this.page.outputPath),
-			// urlPath: this.page.url,
 		})
-
-		return `
-			<li>
-				<a href="${eleventyConfig.getFilter("url")(genMetadata.jpeg[1].url)}" 
-				data-pswp-width="${genMetadata.jpeg[1].width}" 
-				data-pswp-height="${genMetadata.jpeg[1].height}" 
-				target="_blank">
-					<img src="${eleventyConfig.getFilter("url")(genMetadata.jpeg[0].url)}" alt="${alt}" />
-				</a>
-			</li>
-    	`.replace(/(\r\n|\n|\r)/gm, "")
-	},*/
+	}
 
 }
