@@ -57,6 +57,7 @@
   },
   "dependencies": {
     "child_process": "^1.0.2",
+    "eleventy-plugin-reading-time": "^0.0.1",
     "photoswipe": "^5.3.7",
     "videojs-youtube": "^3.0.0"
   }

@@ -1,6 +1,7 @@
 const EleventyPluginNavigation = require('@11ty/eleventy-navigation')
 const EleventyPluginRss = require('@11ty/eleventy-plugin-rss')
 const EleventyPluginSyntaxhighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
+const readingTime = require('eleventy-plugin-reading-time')
 const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite')
 const rollupPluginCritical = require('rollup-plugin-critical').default
 
@@ -35,6 +36,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(EleventyPluginNavigation)
 	eleventyConfig.addPlugin(EleventyPluginRss)
 	eleventyConfig.addPlugin(EleventyPluginSyntaxhighlight)
+	eleventyConfig.addPlugin(readingTime)
 	eleventyConfig.addPlugin(EleventyI18nPlugin, {
 		defaultLanguage: "en",
 		errorMode: "allow-fallback"
@@ -60,15 +62,10 @@ module.exports = function (eleventyConfig) {
 						assetFileNames: (assetInfo) => {
 							var info = assetInfo.name.split('.')
 							var extType = info[info.length - 1]
-							if (
-								/png|avif|webp|jpe?g|svg|gif|tiff|bmp|ico/i.test(
-									extType
-								)
-							) {
-								return `imgs/[name][extname]`
-							} else {
-								return `css/[name]-[hash][extname]`
-							}
+							if (/png|avif|webp|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) 
+							    return `imgs/[name][extname]`
+							else 
+							    return `css/[name]-[hash][extname]`
 						},
 						chunkFileNames: 'assets/js/[name]-[hash].js',
 						entryFileNames: 'assets/js/[name]-[hash].js',
@@ -85,7 +82,7 @@ module.exports = function (eleventyConfig) {
 							{ uri: 'index.html', template: 'index' },
 							{ uri: 'notes/index.html', template: 'notes/index' },
 							{ uri: '404.html', template: '404' },
-							{ uri: 'about/index.html', template: 'index' },
+							{ uri: 'about/index.html', template: 'about/index' },
 						],
 						criticalConfig: {
 							inline: true,
