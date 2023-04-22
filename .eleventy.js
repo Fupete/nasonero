@@ -24,16 +24,23 @@ const GALLERY_IMAGE_WIDTH = 320;
 const LANDSCAPE_LIGHTBOX_IMAGE_WIDTH = 1440;
 const PORTRAIT_LIGHTBOX_IMAGE_WIDTH = 720;
 
+// i18n
+const { EleventyI18nPlugin } = require("@11ty/eleventy")
+
 module.exports = function (eleventyConfig) {
 	// eleventyConfig.setServerPassthroughCopyBehavior('copy')
 	eleventyConfig.addPassthroughCopy("public")
 
-    // plugins
+	// plugins
 	eleventyConfig.addPlugin(EleventyPluginNavigation)
 	eleventyConfig.addPlugin(EleventyPluginRss)
 	eleventyConfig.addPlugin(EleventyPluginSyntaxhighlight)
+	eleventyConfig.addPlugin(EleventyI18nPlugin, {
+		defaultLanguage: "en",
+		errorMode: "allow-fallback"
+	})
 	eleventyConfig.addPlugin(EleventyVitePlugin, {
-		tempFolderName: './.11ty-vite', 
+		tempFolderName: './.11ty-vite',
 		viteOptions: {
 			base: '/nasonero/',
 			publicDir: 'public',
@@ -126,10 +133,10 @@ module.exports = function (eleventyConfig) {
 		let imageSrc = `${path.dirname(this.page.inputPath)}/${src}`
 		let lightboxImageWidth = LANDSCAPE_LIGHTBOX_IMAGE_WIDTH
 		if (alt === undefined) throw new Error(`Missing \`alt\` on image from: ${src}`)
-		
+
 		let metadata = await sharp(imageSrc).metadata()
 		if (metadata.height > metadata.width) lightboxImageWidth = PORTRAIT_LIGHTBOX_IMAGE_WIDTH
-		
+
 		let genMetadata = await Image(imageSrc, {
 			widths: [GALLERY_IMAGE_WIDTH, lightboxImageWidth],
 			formats: ["avif", "webp", "jpeg"],
