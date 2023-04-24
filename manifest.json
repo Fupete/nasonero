@@ -1,9 +1,9 @@
 {
-  "_main-434ffb37.js": {
+  "_main-7c65a8d5.js": {
     "css": [
-      "css/main-d155074f.css"
+      "css/main-0507cf12.css"
     ],
-    "file": "assets/js/main-434ffb37.js",
+    "file": "assets/js/main-7c65a8d5.js",
     "imports": [
       "_videojs-c8c265c0.js"
     ]
@@ -48,7 +48,7 @@
     "src": "imgs/RPijnX0kkx-640.webp"
   },
   "main.css": {
-    "file": "css/main-d155074f.css",
+    "file": "css/main-0507cf12.css",
     "src": "main.css"
   }
 }

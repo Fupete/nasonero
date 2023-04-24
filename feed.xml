@@ -8,14 +8,76 @@
         <name>nasonero.studio</name>
     </author>
     
-    <updated>2023-04-01T00:00:00Z</updated>
+    <updated>2023-04-21T00:00:00Z</updated>
     
     <id>https://fupete.github.io/nasonero//</id>
         <entry>
+            <title>Style guide</title>
+            <link href="https://fupete.github.io/nasonero/notes/2023-04-21-style-guide/"/>
+            <updated>2023-04-21T00:00:00Z</updated>
+            <id>https://fupete.github.io/nasonero/notes/2023-04-21-style-guide/</id>
+            <content type="html"><![CDATA[
+                <h2 id="h2" tabindex="-1">h2 <a class="direct-link" href="https://fupete.github.io/nasonero/notes/2023-04-21-style-guide/#h2" aria-hidden="true">#</a></h2>
+<h3 id="h3" tabindex="-1">h3 <a class="direct-link" href="https://fupete.github.io/nasonero/notes/2023-04-21-style-guide/#h3" aria-hidden="true">#</a></h3>
+<h4 id="h4" tabindex="-1">h4 <a class="direct-link" href="https://fupete.github.io/nasonero/notes/2023-04-21-style-guide/#h4" aria-hidden="true">#</a></h4>
+<h5 id="h5" tabindex="-1">h5 <a class="direct-link" href="https://fupete.github.io/nasonero/notes/2023-04-21-style-guide/#h5" aria-hidden="true">#</a></h5>
+<h6 id="h6" tabindex="-1">h6 <a class="direct-link" href="https://fupete.github.io/nasonero/notes/2023-04-21-style-guide/#h6" aria-hidden="true">#</a></h6>
+<ul>
+<li>List item</li>
+<li>list iten</li>
+<li>list item</li>
+</ul>
+<ol>
+<li>list item</li>
+<li>list item</li>
+<li>list item</li>
+</ol>
+<p><strong>Bold</strong> and <em>italic</em></p>
+<p>You'll want to run <code>really_cool_script.sh arg</code>.</p>
+<p>Pay attention to the <code>foo_bar_whammy</code> field in that table.</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">Foo</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> bar<span class="token punctuation">)</span><span class="token punctuation">:</span><br />  self<span class="token punctuation">.</span>bar <span class="token operator">=</span> bar</code></pre>
+<p>See the syntax guide for more info: <a href="https://fupete.github.io/nasonero/notes/2023-04-21-style-guide/syntax_guide.md">link</a>.<br />
+Or, check out the style guide <a href="https://fupete.github.io/nasonero/notes/2023-04-21-style-guide/style_guide.md">here</a>.<br />
+DO NOT DO THIS.</p>
+<p>Fruit | Attribute | Notes<br />
+--- | --- | --- | ---<br />
+Apple | <a href="https://example.com/SomeReallyReallyReallyReallyReallyReallyReallyReallyLongQuery">Juicy</a>, Firm, Sweet | Apples keep doctors away.<br />
+Banana | <a href="https://example.com/SomeDifferentReallyReallyReallyReallyReallyReallyReallyReallyLongQuery">Convenient</a>, Soft, Sweet | Contrary to popular belief, most apes prefer mangoes.</p>
+<table>
+<thead>
+<tr>
+<th>Transport</th>
+<th>Favored by</th>
+<th>Advantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Swallow</td>
+<td>Coconuts</td>
+<td>Otherwise unladen</td>
+</tr>
+<tr>
+<td>Bicycle</td>
+<td>Miss Gulch</td>
+<td>Weatherproof</td>
+</tr>
+<tr>
+<td>X-34 landspeeder</td>
+<td>Whiny farmboys</td>
+<td>Cheap since the X-38 came out</td>
+</tr>
+</tbody>
+</table>
+<p>DO NOT DO THIS</p>
+
+            ]]></content>
+        </entry>
+        <entry>
             <title>Test again</title>
-            <link href="https://fupete.github.io/nasonero/notes/2023-04-01-Test%20again/"/>
+            <link href="https://fupete.github.io/nasonero/notes/2023-04-01-test-again/"/>
             <updated>2023-04-01T00:00:00Z</updated>
-            <id>https://fupete.github.io/nasonero/notes/2023-04-01-Test%20again/</id>
+            <id>https://fupete.github.io/nasonero/notes/2023-04-01-test-again/</id>
             <content type="html"><![CDATA[
                 <p>Lorem Ipsum Dolor Test Again.</p>
 
@@ -23,9 +85,9 @@
         </entry>
         <entry>
             <title>Post with gallery</title>
-            <link href="https://fupete.github.io/nasonero/notes/2023-03-20-Post-with-gallery/"/>
+            <link href="https://fupete.github.io/nasonero/notes/2023-03-20-post-with-gallery/2023-03-20-Post-with-gallery/"/>
             <updated>2023-03-20T00:00:00Z</updated>
-            <id>https://fupete.github.io/nasonero/notes/2023-03-20-Post-with-gallery/</id>
+            <id>https://fupete.github.io/nasonero/notes/2023-03-20-post-with-gallery/2023-03-20-Post-with-gallery/</id>
             <content type="html"><![CDATA[
                 <p></p><div>			<div class="gallery" id="gallery-uzupis">				<ul>								<li>				<a href="https://fupete.github.io/nasonero/media/gallery/RPijnX0kkx-1440.jpeg" data-pswp-width="1440" data-pswp-height="1439" target="_blank">					<img src="https://fupete.github.io/nasonero/media/gallery/RPijnX0kkx-320.jpeg" alt="Tiberto Skveras" />				</a>			</li>    				<li>				<a href="https://fupete.github.io/nasonero/media/gallery/Sjb26eLV0E-720.jpeg" data-pswp-width="720" data-pswp-height="900" target="_blank">					<img src="https://fupete.github.io/nasonero/media/gallery/Sjb26eLV0E-320.jpeg" alt="Tibetan Flags" />				</a>			</li>    				<li>				<a href="https://fupete.github.io/nasonero/media/gallery/qF6FyXhff4-1440.jpeg" data-pswp-width="1440" data-pswp-height="1077" target="_blank">					<img src="https://fupete.github.io/nasonero/media/gallery/qF6FyXhff4-320.jpeg" alt="Tibetan Flags" />				</a>			</li>    				<li>				<a href="https://fupete.github.io/nasonero/media/gallery/wrMHxJkl2p-720.jpeg" data-pswp-width="720" data-pswp-height="806" target="_blank">					<img src="https://fupete.github.io/nasonero/media/gallery/wrMHxJkl2p-320.jpeg" alt="Tibetan Flags" />				</a>			</li>    				<li>				<a href="https://fupete.github.io/nasonero/media/gallery/86oVvjh92r-720.jpeg" data-pswp-width="720" data-pswp-height="1077" target="_blank">					<img src="https://fupete.github.io/nasonero/media/gallery/86oVvjh92r-320.jpeg" alt="Tibetan Flags" />				</a>			</li>    					</ul>			</div>		</div><p></p>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula ut ipsum id vulputate. Nullam quis sodales sapien, et feugiat metus.</p>
@@ -39,12 +101,12 @@
         </entry>
         <entry>
             <title>Post with video test</title>
-            <link href="https://fupete.github.io/nasonero/notes/2023-03-19-Post-with-video-test/"/>
+            <link href="https://fupete.github.io/nasonero/notes/2023-03-19-post-with-video-test/"/>
             <updated>2023-03-19T00:00:00Z</updated>
-            <id>https://fupete.github.io/nasonero/notes/2023-03-19-Post-with-video-test/</id>
+            <id>https://fupete.github.io/nasonero/notes/2023-03-19-post-with-video-test/</id>
             <content type="html"><![CDATA[
                 <p>Lorem Ipsum Dolor.</p>
-<h2 id="stream-zencdn" tabindex="-1">Stream zencdn <a class="direct-link" href="https://fupete.github.io/nasonero/notes/2023-03-19-Post-with-video-test/#stream-zencdn" aria-hidden="true">#</a></h2>
+<h2 id="stream-zencdn" tabindex="-1">Stream zencdn <a class="direct-link" href="https://fupete.github.io/nasonero/notes/2023-03-19-post-with-video-test/#stream-zencdn" aria-hidden="true">#</a></h2>
 <p></p><div><br />
 <video id="videoHomeId" class="video-js" data-setup='{
 				"fluid": true, 
@@ -56,7 +118,7 @@
 <source src="https://vjs.zencdn.net/v/oceans.webm" type="video/webm" /><br />
 </video><br />
 </div><p></p>
-<h2 id="youtube" tabindex="-1">Youtube <a class="direct-link" href="https://fupete.github.io/nasonero/notes/2023-03-19-Post-with-video-test/#youtube" aria-hidden="true">#</a></h2>
+<h2 id="youtube" tabindex="-1">Youtube <a class="direct-link" href="https://fupete.github.io/nasonero/notes/2023-03-19-post-with-video-test/#youtube" aria-hidden="true">#</a></h2>
 <p></p><div><br />
 <video id="videoYTId" class="video-js" data-setup='{
 				"fluid": true, 
