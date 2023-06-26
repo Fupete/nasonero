@@ -1,15 +1,6 @@
 {
-  "_main-a4822c3a.js": {
-    "css": [
-      "css/main-0d0c6da0.css"
-    ],
-    "file": "assets/js/main-a4822c3a.js",
-    "imports": [
-      "_videojs-915a6a83.js"
-    ]
-  },
-  "_videojs-915a6a83.js": {
-    "file": "assets/js/videojs-915a6a83.js"
+  "_videojs-e68e879f.js": {
+    "file": "assets/js/videojs-e68e879f.js"
   },
   "imgs/RPijnX0kkx-1280.avif": {
     "file": "imgs/RPijnX0kkx-1280.avif",
@@ -47,8 +38,19 @@
     "file": "imgs/RPijnX0kkx-640.webp",
     "src": "imgs/RPijnX0kkx-640.webp"
   },
-  "main.css": {
-    "file": "css/main-0d0c6da0.css",
-    "src": "main.css"
+  "notes/2023-03-19-post-with-video-test/index.css": {
+    "file": "css/index-0d0c6da0.css",
+    "src": "notes/2023-03-19-post-with-video-test/index.css"
+  },
+  "notes/2023-03-19-post-with-video-test/index.html": {
+    "css": [
+      "css/index-0d0c6da0.css"
+    ],
+    "file": "assets/js/index-ba2dec5c.js",
+    "imports": [
+      "_videojs-e68e879f.js"
+    ],
+    "isEntry": true,
+    "src": "notes/2023-03-19-post-with-video-test/index.html"
   }
 }

@@ -35,7 +35,8 @@
 <p><strong>Bold</strong> and <em>italic</em></p>
 <p>You'll want to run <code>really_cool_script.sh arg</code>.</p>
 <p>Pay attention to the <code>foo_bar_whammy</code> field in that table.</p>
-<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">Foo</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> bar<span class="token punctuation">)</span><span class="token punctuation">:</span><br />  self<span class="token punctuation">.</span>bar <span class="token operator">=</span> bar</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">Foo</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> bar<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  self<span class="token punctuation">.</span>bar <span class="token operator">=</span> bar</code></pre>
 <p>See the syntax guide for more info: <a href="https://fupete.github.io/nasonero/notes/2023-04-21-style-guide/syntax_guide.md">link</a>.<br />
 Or, check out the style guide <a href="https://fupete.github.io/nasonero/notes/2023-04-21-style-guide/style_guide.md">here</a>.<br />
 DO NOT DO THIS.</p>
