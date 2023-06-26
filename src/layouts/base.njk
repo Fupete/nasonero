@@ -1,56 +1,76 @@
 <!DOCTYPE html>
-<html lang="{{ meta.lang }}">
+<html lang="{{ page.lang }}">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ meta.title }}</title>
+	<link rel="alternate" hreflang="{{ page.lang }}" href="{{page.url}}">
+	{% for link in page.url | locale_links %}
+	<link rel="alternate" hreflang="{{link.lang}}" href="https://fupete.github.io/nasonero{{link.url}}">
+	{% endfor %}
 
-	{# <link rel="preload" href="{{ '/assets/fonts/inter/Inter-Regular.woff2' | url }}" as="font" type="font/woff2" crossorigin=""> #}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ meta.title }}</title>
 
-    {% include "meta.njk" %}
+	{#
+	<link rel="preload" href="{{ '/assets/fonts/inter/Inter-Regular.woff2' | url }}" as="font" type="font/woff2"
+		crossorigin=""> #}
+
+	{% include "meta.njk" %}
 
 	<script>
-	/* Font loading: Critical FOFT with preload, see: https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-with-preload */
-	(function() {
-		if( "fonts" in document ) {
-			// Optimization for Repeat Views
-			if( sessionStorage.fontsLoadedCriticalFoftPreload ) {
-				document.documentElement.className += " fonts-loaded-2";
-				return;
-			}
-
-			document.fonts.load("1em 'Inter Starter'").then(function () {
-				document.documentElement.className += " fonts-loaded-1";
-
-				Promise.all([
-					document.fonts.load("400 1em 'Inter'"),
-					document.fonts.load("700 1em 'Inter'"),
-					document.fonts.load("italic 1em 'Inter'"),
-					document.fonts.load("italic 700 1em 'Inter'")
-				]).then(function () {
+		/* Font loading: Critical FOFT with preload, see: https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-with-preload */
+		(function () {
+			if ("fonts" in document) {
+				// Optimization for Repeat Views
+				if (sessionStorage.fontsLoadedCriticalFoftPreload) {
 					document.documentElement.className += " fonts-loaded-2";
+					return;
+				}
 
-					// Optimization for Repeat Views
-					sessionStorage.fontsLoadedCriticalFoftPreload = true;
+				document.fonts.load("1em 'Inter Starter'").then(function () {
+					document.documentElement.className += " fonts-loaded-1";
+
+					Promise.all([
+						document.fonts.load("400 1em 'Inter'"),
+						document.fonts.load("700 1em 'Inter'"),
+						document.fonts.load("italic 1em 'Inter'"),
+						document.fonts.load("italic 700 1em 'Inter'")
+					]).then(function () {
+						document.documentElement.className += " fonts-loaded-2";
+
+						// Optimization for Repeat Views
+						sessionStorage.fontsLoadedCriticalFoftPreload = true;
+					});
 				});
-			});
-		}
-	})();
+			}
+		})();
 	</script>
-    
+
 	<link rel="stylesheet" href="/assets/css/main.scss">
 </head>
+
 <body>
-    <a href="#main" class="skiplink">Skip to main content</a>
+	<a href="#main" class="skiplink">Skip to main content</a>
 
-    <div class="layout" role="document">
-        {% include "header.njk" %}
-        <main id="main" class="main">
-            {{ content | safe }}
-        </main>
-        {% include "footer.njk" %}
-    </div>
+	<div class="layout" role="document">
+		{% include "header.njk" %}
+		<main id="main" class="main">
+			<div id="langAlternatives">
+				{% for link in page.url | locale_links %}
+				{%- if loop.first %}
+				This page is also available in:
+				{% endif %}
+				{%- if not loop.first %},{% endif %}
+				<a href="{{link.url}}" lang="{{link.lang}}" hreflang="{{link.lang}}">{{link.label}}</a>
+				{% endfor %}
+			</div>
 
-    <script type="module" src="/assets/js/main.js"></script>
+			{{ content | safe }}
+		</main>
+		{% include "footer.njk" %}
+	</div>
+
+	<script type="module" src="/assets/js/main.js"></script>
 </body>
+
 </html>
